@@ -1,0 +1,439 @@
+graph test1 {
+ label="Graph 01"; 
+ 1;
+ 2;
+ 3;
+ 4;
+
+}
+
+digraph test1b {
+ label="Graph 01: Tree Decomposition"
+ 1 -> 2 -> 3 -> 4;
+}
+
+digraph test1c {
+ label="Graph 01: Sigma/Alpha"
+ node [shape=record];
+ 1 -> 2 -> 3 -> 4;
+ 1 [label = "|1234"]
+ 2 [label = "|234"]
+ 3 [label = "|34"]
+ 4 [label = "|4"]
+}
+
+graph test2 {
+ label="Graph 02"
+ 1 -- 2;
+ 3;
+ 4;
+}
+
+digraph test2b {
+ label="Graph 02: Tree Decomposition"
+ 12 -> 3 -> 4;
+}
+
+digraph test2c {
+ label="Graph 02: Sigma/Alpha"
+ node [shape=record];
+ 12 -> 3 -> 4;
+ 12 [label = "|1234"]
+ 3 [label = "|34"]
+ 4 [label = "|4"]
+}
+
+graph test3 {
+ label="Graph 03"
+ 1--2;
+ 3--4;
+}
+
+digraph test3b {
+ label="Graph 03: Tree Decomposition"
+ 12 -> 34;
+}
+
+digraph test3c {
+ label="Graph 03: Sigma/Alpha"
+ node [shape=record];
+ 12 -> 34;
+ 12 [label = "|1234"]
+ 34 [label = "|34"]
+}
+
+
+graph test4 {
+ label="Graph 04"
+ 1 -- 2;
+ 1 -- 3;
+ 4;
+}
+
+digraph test4b {
+ label="Graph 04a: Tree Decomposition (\"natural\")"
+ 1 -> 12;
+ 1 -> 13;
+ 1 -> 4;
+}
+
+digraph test4c {
+ label="Graph 04a: Sigma/Alpha"
+ node [shape = record];
+ 1 -> 12;
+ 1 -> 13;
+ 1 -> 4;
+ 1 [label = "|1234"];
+ 12 [label = "1|2"];
+ 13 [label = "1|3"];
+ 4 [label = "|4"];
+}
+
+digraph test4d {
+ label="Graph 04b: Tree Decomposition (\"efficient\")"
+ 12 -> 13 -> 4;
+}
+
+digraph test4e {
+ label="Graph 04b: Sigma/Alpha"
+ node [shape = "record"];
+ 12 -> 13 -> 4;
+ 12 [label="|1234"];
+ 13 [label="1|34"];
+ 4 [label="|4"];
+ 
+}
+
+graph test5 {
+ label="Graph 05"
+ 1 -- 2;
+ 2 -- 3;
+ 3 -- 4;
+}
+
+digraph test5b {
+ label="Graph 05: Tree Decomposition"
+ 12 -> 23 -> 34;
+}
+
+digraph test5c {
+ label="Graph 05: Sigma/Alpha"
+ node [shape = "record"];
+ 12 -> 23 -> 34;
+ 12 [label="|1234"];
+ 23 [label="2|34"];
+ 34 [label="3|4"];
+}
+
+digraph test5d {
+ rankdir=LR; 
+ compound=true;
+ nodesep=0.8
+ subgraph cluster_0 {
+  node[style=filled];
+  1 -> 2 -> 3 -> 4
+  3 [fillcolor=red];
+  4 [fillcolor=green];
+ }
+ subgraph cluster_1 {
+  node[style=filled];
+  
+  11 -> 22 -> 33 -> 44
+  11 [label=1];
+  22 [label=2,fillcolor=red];
+  33 [label=3,fillcolor=green];
+  44 [label=4,fillcolor=green];  
+ }
+
+ subgraph cluster_2 {
+  node[style=filled, fillcolor=green];
+  111 -> 222 -> 333 -> 444
+  111 [label=1];
+  222 [label=2];
+  333 [label=3];
+  444 [label=4];  
+ }
+
+ 222 -> 22 [lhead = cluster_1, ltail = cluster_2, constraint=false];
+ 22 -> 2 [lhead = cluster_0, ltail = cluster_1, constraint=false];
+ 
+ label="G05: Separators and components on the underlying graph."
+ 
+}
+
+graph test6 {
+ label="Graph 06"
+ 1 -- 2;
+ 1 -- 3;
+ 1 -- 4;
+}
+
+digraph test6b {
+ label="Graph 06: Tree Decomposition"
+ 12 -> 13 -> 14;
+}
+
+digraph test6c {
+ label="Graph 06: Tree Decomposition"
+ node [shape = "record"];
+ 12 -> 13 -> 14;
+ 12 [label="|1234"];
+ 13 [label="1|34"];
+ 14 [label="1|4"]; 
+}
+
+graph test7 {
+ label="Graph 07"
+ 1 -- 2 -- 3;
+ 1 -- 3;
+ 4;
+}
+
+digraph test7b {
+ label="Graph 07: Tree Decomposition"
+ 123 -> 4;
+}
+
+digraph test7c {
+ label="Graph 07: Sigma/Alpha"
+ node [shape = "record"];
+ 123 -> 4;
+ 123 [label = "|1234"];
+ 4 [label = "|4"];
+}
+
+graph test8 {
+ label="Graph 08"
+ 1 -- 2;
+ 2 -- 3 [constraint = false];
+ 3 -- 1 [constraint = false];
+ 3 -- 4;
+}
+
+digraph test8b {
+ label="Graph 08: Tree Decomposition"
+ 123 -> 34;
+}
+
+digraph test8c {
+ label="Graph 08: Sigma/Alpha"
+ node [shape = "record"];
+ 123 -> 34;
+ 123 [label="|1234"];
+ 34 [label="3|4"];
+}
+
+graph test9 {
+ label="Graph 09"
+ 1 -- 2;
+ 2 -- 3 [constraint = false];
+ 4 -- 3;
+ 4 -- 1 [constraint = false];
+}
+
+digraph test9b {
+ label="Graph 09: Tree Decomposition"
+ 123 -> 134;
+}
+
+digraph test9c {
+ label="Graph 09: Sigma/Alpha"
+ node [shape = "record"]; 
+ 123 -> 134;
+ 123 [label="|1234"];
+ 134 [label="13|4"];
+}
+
+graph test10 {
+ label="Graph 10"
+ 1 -- 2;
+ 2 -- 3 [constraint = false];
+ 4 -- 3;
+ 4 -- 1 [constraint = false];
+ 1 -- 3;
+}
+
+digraph test10b {
+ label="Graph 10: Tree Decomposition"
+ 123 -> 134;
+}
+
+digraph test10c {
+ label="Graph 10: Sigma/Alpha"
+ node [shape = "record"]; 
+ 123 -> 134;
+ 123 [label="|1234"];
+ 134 [label="13|4"];
+
+}
+
+digraph test10d {
+ label="Tree decomposition of Graph 09 but not Graph 10"
+ 124 -> 234;
+}
+
+digraph test10e {
+ label="Sigma/Alpha of Graph 09 but not Graph 10"
+ node [shape = "record"];
+ 124 -> 234;
+ 124 [label="|1234"];
+ 234 [label="24|3"];
+}
+
+graph test11 {
+ label="Graph 11"
+ 1 -- 2;
+ 2 -- 3 [constraint = false];
+ 4 -- 3;
+ 4 -- 1 [constraint = false];
+ 1 -- 3;
+ 4 -- 2;
+}
+
+digraph test11b {
+ label="Graph 11: Tree Decomposition"
+ 1234;
+}
+
+digraph test11c {
+ label="Graph 11: Sigma/Alpha"
+ node [shape = "record"]; 
+ 1234 [label="|1234"];
+}
+
+graph test12 {
+ label="Graph 12"
+ 1 -- 2 -- {3; 4} -- 5 -- 6;
+}
+
+digraph test12b {
+ label="Graph 12: Tree Decomposition"
+ 12 -> 234 -> 345 -> 56;
+}
+
+digraph test12c {
+ label="Graph 12: Sigma/Alpha"
+ node [shape = "record"];
+ 12 -> 234 -> 345 -> 56;
+ 12 [label = "|123456"];
+ 234 [label = "2|3456"];
+ 345 [label = "34|56"];
+ 56 [label = "5|6"]; 
+}
+
+graph test12d {
+   compound=true;
+ rankdir=LR;
+ subgraph cluster1 {
+  node [style="filled"]
+  a5 [fillcolor = red];
+  a6 [fillcolor = green];
+  
+  a1 -- a2 -- {a3; a4} -- a5 -- a6;
+ }
+ subgraph cluster2 {
+  node [style="filled"];
+  { node [fillcolor = lightgrey];
+   b1;
+   b2;
+  }
+  { node [fillcolor = red];
+   b3;
+   b4;
+  }
+  { node [fillcolor = green];
+   b5;
+   b6;
+  }
+    
+  b1 -- b2 -- {b3; b4} -- b5 -- b6;
+
+ }
+ subgraph cluster3 {
+  node [style="filled", fillcolor=green]
+  c1 [fillcolor = lightgrey];
+  c2 [fillcolor = red];
+  c1 -- c2 -- {c3; c4} -- c5 -- c6;
+ }
+ subgraph cluster4 {
+  node [style="filled", fillcolor=green]
+  d1 -- d2 -- {d3; d4} -- d5 -- d6;
+ }
+ label="G12: Separators and components on the underlying graph."
+}
+
+graph test13 {
+ 1 -- 2 -- 3 -- 4;
+ 1 -- 6 -- 5 -- 4;
+ label="Graph 13"
+}
+
+digraph test13b {
+ label="Graph 13: Tree Decomposition"
+ 124 -> 234;
+ 124 -> 146 -> 456;
+ }
+
+ digraph test13c {
+  label="Graph 13: Sigma/Alpha";
+  node[shape=record]
+  124 -> 234;
+  124 -> 146 -> 456;
+  124 [label = "|123456"];
+  234 [label="24|3"];
+  146 [label="14|56"];
+  456 [label="46|5"];
+ }
+
+graph test12d {
+ compound=true;
+ clusterrank=local;
+ rankdir=LR;
+ subgraph cluster1 {
+  node [style="filled"]
+  a4 [fillcolor = red];
+  a5 [fillcolor = green];
+  a6 [fillcolor = red];
+  
+  a1 -- a2 -- a3 -- a4;
+  a1 -- a6 -- a5 -- a4;
+  
+ }
+ subgraph cluster2 {
+  node [style="filled"];
+  { node [fillcolor = lightgrey];
+   b2;
+   b3;
+  }
+  { node [fillcolor = red];
+   b1;
+   b4;
+  }
+  { node [fillcolor = green];
+   b5;
+   b6;
+  }
+  b1 -- b2 -- b3 -- b4;
+  b1 -- b6 -- b5 -- b4;
+    
+
+ }
+ subgraph cluster3 {
+  node [style="filled", fillcolor=lightgrey]
+  c3 [fillcolor = green];
+  c2 [fillcolor = red];
+  c4 [fillcolor = red];
+
+  c1 -- c2 -- c3 -- c4;
+  c1 -- c6 -- c5 -- c4;
+ }
+ subgraph cluster4 {
+  node [style="filled", fillcolor=green]
+  d1 -- d2 -- d3 -- d4;
+  d1 -- d6 -- d5 -- d4;
+ }
+ c4 -- b1 [style = invisible]
+ a5 -- b4 [rank=same,style=invisible]
+ c5 -- d2 [rank=same,style=invisible]
+ label="G13: Separators and components on the underlying graph."
+}
