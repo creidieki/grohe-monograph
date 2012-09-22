@@ -1,0 +1,995 @@
+% bodydefs.tex
+\def\landscapecent#1#2{
+	\textwidth #1
+	\textheight #2
+	\newdimen\paperwidth
+	\newdimen\paperheight
+	\paperwidth = 10.5in    % Remember not all of the paper is printable!
+	\paperheight = 8.0in  % Same here.
+	\advance\paperwidth by -\textwidth
+	\advance\paperwidth by -2.0in
+	\divide\paperwidth by 2
+	\advance\paperwidth by 0.25in 
+	\oddsidemargin \paperwidth
+	\evensidemargin \paperwidth
+	\advance\paperheight by -\headheight
+	\advance\paperheight by -\headsep
+	\advance\paperheight by -\textheight
+	\advance\paperheight by -\headsep
+	\advance\paperheight by -\footheight
+	\advance\paperheight by -2.0in
+	\divide\paperheight by 2
+	\advance\paperheight by 0.25in 
+	\topmargin \paperheight
+	}
+
+\def\centertext#1#2{
+	\textwidth #1
+	\textheight #2
+	\newdimen\paperwidth
+	\newdimen\paperheight
+	\paperwidth = 8.0in    % Remember not all of the paper is printable!
+	\paperheight = 10.5in  % Same here.
+	\advance\paperwidth by -\textwidth
+	\advance\paperwidth by -2.0in
+	\divide\paperwidth by 2
+	\advance\paperwidth by 0.25in 
+	\oddsidemargin \paperwidth
+	\evensidemargin \paperwidth
+	\advance\paperheight by -\headheight
+	\advance\paperheight by -\headsep
+	\advance\paperheight by -\textheight
+	\advance\paperheight by -\headsep
+	\advance\paperheight by -\footheight
+	\advance\paperheight by -2.0in
+	\divide\paperheight by 2
+	\advance\paperheight by 0.25in 
+	\topmargin \paperheight
+	}
+\newcommand\regstyle{
+\centertext{6.0in}{9.0in}
+\parindent=0in
+\parskip=\medskipamount   }
+
+\newcommand\spstyle{
+\centertext{6.0in}{9.0in}
+\parindent=0in
+\parskip=\medskipamount
+\pagestyle{empty}        }
+
+\newcommand\slistyle{
+\setlength{\textwidth}{7in}
+\setlength{\textheight}{8in}
+\setlength{\evensidemargin}{0in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\footskip}{.5in}
+\setlength{\topmargin}{0in}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\pagestyle{empty}}
+
+\newcommand\newSlideStyle{
+\centertext{7.0in}{8.0in}
+\parindent=0in
+\parskip=\bigskipamount
+\pagestyle{empty}}
+
+\newcommand\sstyle{
+\centertext{7.0in}{8.0in}
+\parindent=0in
+\parskip=\medskipamount
+}
+
+\newcommand\numberedSstyle{
+\centertext{7.0in}{8.0in}
+\parindent=0in
+\parskip=\medskipamount
+}
+
+
+\newcommand\letterstyle{
+\setlength{\oddsidemargin}{0.0 in}
+\setlength{\evensidemargin}{0.0 in}
+\setlength{\topmargin}{-0.5 in}
+\setlength{\textwidth}{6.0 in}
+\setlength{\textheight}{9 in}
+\setlength{\parindent}{.2 in}
+\setlength{\parskip}{0.1 in}
+}
+
+
+\newcommand\longletterstyle{
+\setlength{\oddsidemargin}{0.0 in}
+\setlength{\evensidemargin}{0.0 in}
+\setlength{\topmargin}{-0.7 in}
+\setlength{\textwidth}{6.0 in}
+\setlength{\textheight}{9.7 in}
+\setlength{\parindent}{.2 in}
+\setlength{\parskip}{0.1 in}
+}
+
+\newcommand\nsfStyle{
+\setlength{\oddsidemargin}{0.0 in}
+\setlength{\evensidemargin}{0.0 in}
+\setlength{\topmargin}{-.5 in}
+\setlength{\textwidth}{6.5 in}
+\setlength{\textheight}{9.0 in}
+\setlength{\parindent}{0 in}
+\setlength{\parskip}{0.1 in}
+}
+
+\newcommand\hwstyle{
+\setlength{\oddsidemargin}{0.0 in}
+\setlength{\evensidemargin}{0.0 in}
+\setlength{\topmargin}{-1.0 in}
+\setlength{\textwidth}{6.5 in}
+\setlength{\textheight}{9.0 in}
+\setlength{\parindent}{0 in}
+\setlength{\parskip}{0.1 in}
+}
+
+\newcommand\longhw{
+\setlength{\oddsidemargin}{0.0 in}
+\setlength{\evensidemargin}{0.0 in}
+\setlength{\topmargin}{-1.0 in}
+\setlength{\textwidth}{6.5 in}
+\setlength{\textheight}{9.5 in}
+\setlength{\parindent}{0 in}
+\setlength{\parskip}{0.1 in}
+}
+
+\newcommand\longwide{
+\setlength{\oddsidemargin}{-.6 in}
+\setlength{\evensidemargin}{-.6in}
+\setlength{\topmargin}{-1.0 in}
+\setlength{\textwidth}{7.5 in}
+\setlength{\textheight}{9.5 in}
+\setlength{\parindent}{0 in}
+\setlength{\parskip}{0.1 in}
+}
+
+\newcommand\recipe{
+\setlength{\oddsidemargin}{-.6 in}
+\setlength{\evensidemargin}{-.6in}
+\setlength{\topmargin}{-1.0 in}
+\setlength{\textwidth}{6.0 in}
+\setlength{\textheight}{9.5 in}
+\setlength{\parindent}{0 in}
+\setlength{\parskip}{0.1 in}
+}
+
+
+\newcommand\shortwide{
+\setlength{\oddsidemargin}{-.6 in}
+\setlength{\evensidemargin}{-.6in}
+\setlength{\topmargin}{-1.0 in}
+\setlength{\textwidth}{7.5 in}
+\setlength{\textheight}{1.5 in}
+\setlength{\parindent}{0 in}
+\setlength{\parskip}{0.1 in}
+\pagestyle{empty}
+}
+
+
+
+\newcommand\longerhw{
+\setlength{\oddsidemargin}{-.25in}
+\setlength{\evensidemargin}{-.25in}
+\setlength{\topmargin}{-0.9 in}
+\setlength{\textwidth}{7.25 in}
+\setlength{\textheight}{9.5 in}
+\setlength{\parindent}{0 in}
+\setlength{\parskip}{0.1 in}
+}
+
+
+\newcommand\epsfig[1]{\begin{center}
+\includegraphics[width = \textwidth]{/Users/immerman/tex/xfig/#1.eps}
+\end{center}}
+
+\newcommand\szepsfig[2]{\begin{center}
+\includegraphics[width = #1\textwidth]{/Users/immerman/tex/xfig/#2.eps}
+\end{center}}
+
+
+\newcommand\szeps[2]{\includegraphics[width = #1\textwidth]{/Users/immerman/tex/xfig/#2.eps}}
+
+
+
+\newcommand\slideFormat{
+\setlength{\oddsidemargin}{-0.5 in}
+\setlength{\evensidemargin}{-0.5 in}
+\setlength{\topmargin}{.5 in}
+\setlength{\textwidth}{7.3 in}
+\setlength{\textheight}{7.3 in}
+\setlength{\parindent}{0 in}
+\setlength{\parskip}{0.2 in}
+}
+
+\newcommand\wideFormat{
+\pagestyle{empty}
+\setlength{\oddsidemargin}{-0.5 in}
+\setlength{\evensidemargin}{-0.5 in}
+\setlength{\topmargin}{-.5 in}
+\setlength{\textwidth}{7.3 in}
+\setlength{\textheight}{7 in}
+\setlength{\parindent}{0 in}
+\setlength{\parskip}{0.2 in}
+}
+
+
+
+
+\newcommand\webstyle{
+\centertext{5.5in}{9.0in}
+\parindent=0in
+\parskip=\medskipamount   }
+
+\newcommand\sphw{
+\centertext{7.25in}{10.0in}
+\parindent=0in
+\parskip=\medskipamount   
+\pagestyle{empty}   }
+
+\newcommand\longsp{
+\centertext{7.25in}{10.5in}
+\parindent=0in
+\parskip=\medskipamount   
+\pagestyle{empty}   }
+
+
+\newcounter{CommentCounter}
+\setcounter{CommentCounter}{0}
+\newcommand{\comment}[1]{\addtocounter{CommentCounter}{1}$^{\spadesuit
+\arabic{CommentCounter}}$\marginpar{$^{\spadesuit\arabic{CommentCounter}}$#1}}
+
+\newcommand{\commentout}[1]{}
+
+\newcommand{\ai}{{\it Artificial Intelligence}}
+\newcommand{\apal}{{\it Annals of Pure and Applied Logic }}
+\newcommand{\bsl}{{\it Bulletin of Symbolic Logic }}
+\newcommand{\cade}{{\it Conf. Automated Deduction }}
+\newcommand{\cav}{{\it Computer Aided Verification }}
+\newcommand{\ccc}{{\it IEEE Conference on Computational Complexity. }}
+\newcommand{\cjtcs}{{\it Chicago J.~Theoret.~Comp.~Sci. }}
+\newcommand{\csl}{{\it Computer Science Logic }}
+\newcommand{\eatcs}{{\it Bull.~ European Assoc.~Theoretical Comp.~Sci. }}
+\newcommand{\focs}{{\it IEEE Found.~of Comp.~Sci.~Symp. }}
+\newcommand{\icalp}{{\it Intl. Conf. on Automata Languages Programming
+}}
+\newcommand{\icdt}{{\it Intl. Conf. on Database Theory }}
+\newcommand{\pods}{{\it ACM Symp.~Principles Database Systems }}
+\newcommand{\sigmod}{{\it ACM Symp. Management of Data }}
+\newcommand{\stacs}{{\it Symp.~Theoretical Aspects Comp.~Sci. }}
+\newcommand{\stoc}{{\it ACM Symp.\ Theory Of Comput. }}
+\newcommand{\strc}{{\it IEEE Structure in Complexity Theory Symp. }}
+\newcommand{\ic}{{\it Information and Computation }}
+\newcommand{\IC}{{\it Information and Computation}}
+\newcommand{\igpl}{{\it Logic Journal of the IGPL }}
+\newcommand{\jacm}{{\it J.~ Assoc.~Comput.~Mach. }}
+\newcommand{\jalg}{{\it J.~Algorithms }}
+\newcommand{\jcss}{{\it J.~Comput.~Sys.~Sci. }}
+\newcommand{\jsc}{{\it J.~Symbolic Comp. }}
+\newcommand{\jsl}{{\it J.~Symbolic Logic }}
+\newcommand{\lics}{{\it IEEE Symp.~Logic In Comput.~Sci. }}
+\newcommand{\lmcs}{{\it Logical Methods in Computer Science }}
+\newcommand{\mfcs}{{\it Mathematical Foundations of Comput.~Sci. }}
+\newcommand{\mst}{{\it Math.~Systems Theory }}
+\newcommand{\popl}{{\it ACM Symp.~Principles of Programming Languages }}
+\newcommand{\sicomp}{{\it SIAM J.~Comput. }}
+\newcommand{\tcs}{{\it Theoret.~Comp.~Sci. }}
+\newcommand{\toplas}{{\it ACM Trans.\ Prog.\ Lang.\ Sys.}}
+
+\newcommand\slidehd[1]{\begin{center}
+ \fcolorbox{red}{blue}{\bf \color{white} #1}
+\end{center}}
+\newcommand\titlehd[1]{\begin{center}
+ \fcolorbox{red}{blue}{\bf \color{white} #1}
+\end{center}}
+\newcommand\tocHead[1]{\textcolor{blue}{\noindent\framebox[\textwidth]{
+{\normalsize CS601} \hfill {\bf #1} \hfill {\normalsize
+Lecture \arabic{section}}}}}
+
+\newcommand\blank{{\hspace*{0.1in}}}
+\newcommand\ithead[1]{\noindent{\it #1 } }  
+\newcommand\bfhead[1]{\medskip\noindent{\bf #1 } }  
+\newcommand\bluehd[1]{\medskip\noindent{\color{blue}\bf #1 } }  
+\newcommand\bluehead[1]{\textcolor{blue}{\noindent\framebox[\textwidth]{\hfill
+{\bf #1} \hfill }}}
+\newcommand\bfheadNoSkip[1]{\noindent{\bf #1 } }  
+\newcommand{\bfctr}[1]{\noindent\makebox[\textwidth]{\hfill{\bf
+#1}\hfill}\sSlideSkip}
+\newcommand{\lmr}[3]{\noindent\makebox[\textwidth]{#1 \hfill #2 \hfill
+#3}}
+\newcommand{\slmr}[3]{\sSlideSkip\lmr{#1}{#2}{#3}\sSlideSkip}
+\newcommand{\lqq}[2]{\noindent\makebox[\textwidth]{#1 \qquad #2 \hfill}}
+\newcommand{\slqq}[2]{\sSlideSkip\lqq{#1}{#2}\sSlideSkip}
+
+\newcommand\bitem[1]{\item{\bf #1 }}  
+\newcommand{\ctrline}[1]{{\begin{center}#1 \end{center}}}
+\newcommand\bolditem[1]{\item[{{\bf #1}}] }       
+\newcommand{\ctrHd}[1]{\noindent\framebox[\textwidth]{\hfill{\bf #1}\hfill}\mSlideSkip}
+\newcommand{\hSlideSkip}{\par\vspace*{2.0in}}
+\newcommand{\bSlideSkip}{\par\vspace*{1.0in}}
+\newcommand{\mSlideSkip}{\par\vspace*{0.5in}}
+\newcommand{\sSlideSkip}{\par\vspace*{0.25in}}
+\newcommand{\negSlideSkip}{\par\vspace*{-0.1in}}
+\newcommand{\NegSlideSkip}{\par\vspace*{-0.2in}}
+\newcommand{\NNegSlideSkip}{\par\vspace*{-0.4in}}
+\newcommand{\vnegSlideSkip}{\par\vspace*{-0.5in}}
+%  Spacing:  type \spacing{1.5} to get more space between lines
+\newcommand{\spacing}[1]{\renewcommand{\baselinestretch}{#1}}
+%Groupings
+\newcommand{\abf}{\stackrel{\infty}{\forall}}   % for all but finitely many
+\newcommand{\abs}[1]{ \vert #1 \vert }
+\newcommand{\Ack}{\mbox{{\rm Ack}}}
+\renewcommand{\angle}[1]{ \langle #1 \rangle }
+\newcommand{\arb}{\;\ni\!}
+\newcommand{\sqb}[1]{\lbrack #1 \rbrack}
+\newcommand{\bbf}[1]{{\blue\bf #1 }}
+\newcommand{\bfb}[1]{\mbox{ {\bf #1} }}
+\newcommand{\bigabs}[1]{ \bigl| #1 \bigr| }
+\newcommand{\bigset}[2]{\bigl\{ #1 \,\bigm|\, #2 \bigr\} }
+\newcommand{\smallset}[2]{\{ #1 \,\bigm|\, #2 \} }
+\newcommand{\Bigset}[2]{\Bigl\{ #1 \;\Bigm|\; #2 \Bigr\} }
+\newcommand{\card}[1]{\vert\!\vert #1 \vert\!\vert}
+\newcommand{\ceiling}[1]{ \lceil #1 \rceil }
+\newcommand{\floor}[1]{ \lfloor #1 \rfloor }
+\newcommand{\norm}[1]{\lbrack\!\lbrack #1 \rbrack\!\rbrack}
+\newcommand{\set}[1]{\{  #1 \} }
+\newcommand{\nTh}{\mbox{$^{\rm th}$}}     % example usage:  ...the
+			        % $i\nThcs601       $ element...
+\newcommand{\st}{\mbox{$^{\rm st}$}}     % example usage:  ...the $r+1\st$ element...
+\newcommand{\und}{\underline{\ }}   % an underline dash, usage:   Program$\und$Counter
+% Math Symbols
+\newcommand{\accepts}[2]{#1(#2)\!\!\downarrow}    %Machine 1 accepts set two
+\newcommand{\bigand}{\bigwedge}
+\newcommand{\bfo}{\leq_{\hbox{{\scriptsize bfo}}}}
+\newcommand{\bfoplus}{\leq_{\hbox{{\scriptsize bfo$^+$}}}}
+\newcommand{\bh}{\leq_{\hbox{{\scriptsize bh}}}}
+\newcommand{\bigor}{\bigvee}
+\newcommand{\CC}{\mbox{{\rm\sc CC}}}
+\newcommand{\cq}[2]{(\exists #1\,#2)}    %Counting quantifiers
+\newcommand{\defeq}{\stackrel{\rm def}{=}}
+\newcommand{\diverges}[2]{#1(#2)=\nearrow}
+\newcommand{\dprime}{{\prime\prime}}
+\newcommand{\notfull}{\mbox{{\rm\sc EMPTY}}}
+\newcommand{\eqdef}{\buildrel \mbox{\tiny\rm def} \over =}
+\newcommand{\Exp}{\hbox{{\rm EXP}}}
+\newcommand{\for}{\leq_{\hbox{{\scriptsize fo}}}}
+\newcommand{\foR}{\leq_{\hbox{{\large fo}}}}
+\newcommand{\fop}{\leq_{\hbox{{\scriptsize fop}}}}
+\newcommand{\fot}{\leq_{\hbox{{\scriptsize fo}}}^t}
+\newcommand{\home}{/nfs/finite/users1/immerman}
+\newcommand{\hr}{\centerline{\rule{6in}{.01in}}}
+\newcommand{\iso}{\cong}
+\newcommand{\twopath}[2]{\mbox{{\tiny \begin{tabular}{c}
+$#1$\\[-.5ex]
+$\rightarrow$\\[-.9ex]
+$#2$
+\end{tabular}}}}
+\newcommand{\mypath}[1]{ { {\scriptscriptstyle \star} \atop 
+      {{\rightarrow}\atop {\scriptscriptstyle  #1}}  } }
+\newcommand{\bijection}{\mbox{{\tiny \begin{tabular}{c}
+1:1\\[-1ex]
+$\rightarrow$\\[-1ex]
+onto
+\end{tabular}}}}
+\newcommand{\surjection}{\mbox{{\tiny \begin{tabular}{c}
+\blank\\[-2ex]
+$\rightarrow$\\[-1ex]
+onto
+\end{tabular}}}}
+\newcommand{\injection}{\mbox{{\tiny \begin{tabular}{c}
+1:1\\[-1ex]
+$\rightarrow$\\[.9ex]
+\end{tabular}}}}
+\newcommand{\lpath}[2]{
+\begin{array}{c}
+{\scriptscriptstyle #1}\\[-1.5ex]
+\longrightarrow\\[-1.5ex]
+{\scriptscriptstyle #2}
+\end{array}}
+\newcommand{\pathstar}{\stackrel{\star}{\rightarrow}}
+\newcommand{\npath}[2]{
+\begin{array}{c}
+{\scriptscriptstyle #1}\\[-1.5ex]
+\rightarrow\\[-1.5ex]
+{\scriptscriptstyle #2}
+\end{array}}
+\renewcommand{\phi}{\varphi}       % Regular phi
+\newcommand{\proves}{\vdash}
+\newcommand{\pt}[1]{\item {[#1 pts.]}}
+\newcommand{\ptp}[2]{\item[#1] {[#2 pts.]}}
+\def\minimal{\mathop{\mu}}
+\newcommand{\qfp}{\leq_{\hbox{{\scriptsize qfp}}}}
+\newcommand{\tao}{\tau}
+\newcommand{\todo}[1]{{\color{blue}[\textit{#1}]}}
+\newcommand{\twiddle}[1]{\stackrel{#1}{\sim}}   % the "knows" relation
+\newcommand{\logiso}{\stackrel{log}{\cong}}   % poly-time isomorphism
+\newcommand{\mdot}{\ominus}   % limited subtraction
+\newcommand{\piso}{\stackrel{p}{\cong}}   % poly-time isomorphism
+\newcommand{\reverse}[1]{\stackrel{\leftarrow}{#1}}   % reverse of a string
+% Capital Letters
+\newcommand\A{{\cal A}}        % the first order structure A
+\newcommand\gA{{\mathfrak{A}}}  % gothic A
+\newcommand\bA{{\bf A}}        % bold A
+\newcommand\gB{{\mathfrak{B}}}  % gothic B
+\newcommand\gC{{\mathfrak{C}}}  % gothic C
+\newcommand\gD{{\mathfrak{D}}}  % gothic D
+\newcommand\gE{{\mathfrak{E}}}  % gothic E
+\newcommand\gF{{\mathfrak{F}}}  % gothic F
+\newcommand\gG{{\mathfrak{G}}}  % gothic G
+\newcommand\gH{{\mathfrak{H}}}  % gothic H
+\newcommand\gI{{\mathfrak{I}}}  % gothic I
+\newcommand\gJ{{\mathfrak{J}}}  % gothic J
+\newcommand\gK{{\mathfrak{K}}}  % gothic K
+\newcommand\B{{\cal B}}        % "     "     "         "   B
+\newcommand\C{\mbox{\bf C}}    % the set of complex numbers
+\newcommand\cC{{\cal C}}        % caligraphic    C
+\newcommand{\common}{{\sf C}}  % the common knowledge operator
+\newcommand\D{{\cal D}}        % "     "     "         "   D
+\newcommand\E{{\cal E}}        % "     "     "         "   E
+%\newcommand\f{\mbox{{\bf false}}}
+\newcommand\cF{{\cal F}}        % caligraphic F --- for the set of PDL formulas
+\newcommand\F{\mbox{\bf F}} % Finite Field
+\newcommand{\rF}{\mbox{{\rm F}}}
+\newcommand\G{{\cal G}}        % The game G
+%\renewcommand\H{{\cal H}}        % caligraphic H
+\newcommand\I{{\cal I}}        % caligraphic I
+\newcommand\J{{\cal J}}        % caligraphic J
+\newcommand\K{{\cal K}}        % caligraphic K
+\newcommand{\know}{{\sf K}}    % the knowledge operator
+\newcommand\sel{{\cal L}}      % the logical language L
+\newcommand\bM{{\bf M}}        % bold M
+\newcommand\M{{\cal M}}        % caligraphic M
+\newcommand\N{\mbox{\bf N}}    % the set of natural numbers
+\newcommand\bP{{\bf P}}        % bold P
+\newcommand\cP{{\cal P}}        % caligraphic P
+\newcommand\Q{\mbox{\bf Q}}    % the set of rationals
+\newcommand\R{\mbox{\bf R}}    % the set of reals
+\newcommand\cR{{\cal R}}        % caligraphic R --- for random restrictions
+\newcommand\rl{{\cal RL}}        % reachability logic
+\newcommand\cS{{\cal S}}        % caligraphic S --- 
+\newcommand\cT{{\cal T}}        % caligraphic T --- for the set of transition terms
+\newcommand\T{\mbox{\bf T}} % truth table true
+\newcommand\bV{{\bf V}}        % bold V
+\newcommand\W{{\cal W}}        % world W
+\newcommand\cX{{\cal X}}        % caligraphic X
+\newcommand\Z{\mbox{\bf Z}}    % the set of integers
+
+%Abbreviations
+\newcommand{\abox}{\framebox{.25in}{$\;$}}
+\newcommand{\adtc}{\mbox{{\rm A(DTC[$E$])}}}
+\newcommand{\ac}{\mbox{{\rm AC}}}
+\newcommand{\acc}{\mbox{{\rm ACC}}}
+\newcommand{\accept}{\mbox{{\rm ACCEPT}}}
+\newcommand{\agap}{\mbox{{\rm AGAP}}}
+\newcommand{\allevendegree}{{\rm\sc ALL-EVEN-DEGREE}}
+\newcommand{\am}{\mbox{{\rm AM}}}
+%\renewcommand{\And}{\mbox{{\bf AND}}}
+\newcommand{\ans}{\mbox{{\rm ANS}}}
+\newcommand{\areach}{\mbox{{\rm\sc AREACH}}}
+\newcommand{\arity}{\mbox{{\rm arity }}}
+\newcommand{\aspace}{\mbox{{\rm ASPACE}}}
+\newcommand{\atime}{\mbox{{\rm ATIME}}}
+\newcommand{\atom}{\mbox{{\rm atom}}}
+\newcommand{\aspacetime}[2]{\mbox{{\rm ASPACE-TIME}}[#1,#2]}
+\newcommand{\aspacealt}[2]{\mbox{{\rm ASPACE-ALT}}[#1,#2]}
+\newcommand{\atc}{\mbox{{\rm ATC}}}
+\newcommand{\atimealt}[2]{\mbox{{\rm ATIME-ALT}}[#1,#2]}
+\newcommand{\bin}{\mbox{bin}}
+\newcommand{\bit}{\mbox{{\rm BIT}}}
+\newcommand{\bmn}{\overline{0}}     %min with a bar over it
+\newcommand{\bmx}{\overline{\mx}}     %max with a bar over it
+\newcommand{\bool}{\mbox{{\rm bool}}}
+\newcommand{\bpp}{\mbox{{\rm BPP}}}
+\newcommand{\bpl}{\mbox{{\rm BPL}}}
+\newcommand{\bra}[1]{<\!#1|}
+\newcommand{\braket}[2]{|<\! #1 | #2\! >}
+\newcommand{\bsum}{\mbox{{\rm BSUM}}}
+\newcommand{\canon}{\mbox{{\rm\sc CANON}}}
+\newcommand{\cflSigStar}{\mbox{$\Sigma^\star${\rm CFL}}}
+\newcommand{\cl}{\mbox{{\sl cl}}}
+\newcommand{\cg}{\mbox{{\rm CompGraph}}}
+\newcommand{\clause}{\mbox{{\rm Clause}}}
+\newcommand{\cland}{\,\land\,}
+\newcommand{\sland}{\;\land\;}
+\newcommand{\clor}{\,\lor\,}
+\newcommand{\slor}{\;\lor\;}
+\newcommand{\scup}{\;\cup\;}
+\newcommand{\scap}{\;\cap\;}
+\newcommand{\clique}{\mbox{{\rm\sc CLIQUE}}}
+\newcommand{\cmod}[3]{#1\equiv #2\,({\rm mod}\, #3)}
+\newcommand{\cnmod}[3]{#1\not\equiv #2\,({\rm mod}\, #3)}
+\newcommand{\cnf}{\mbox{{\rm CNF}}}
+\newcommand{\cnfsat}{\mbox{{\rm CNF-SAT}}}
+\newcommand{\curlylt}{\prec}
+\newcommand{\curlyle}{\preceq}
+\renewcommand{\bin}{\mbox{bin}}
+\newcommand{\co}{\mbox{co-}}
+\newcommand{\code}{\mbox{code}}
+\newcommand{\Color}{\mbox{{\rm\sc COLOR}}}
+\newcommand{\Col}{\mbox{{\rm\sc 3-COLOR}}}
+\newcommand{\Comp}{\mbox{{\rm COMP}}}
+\newcommand{\connected}{\mbox{{\rm\sc CONNECTED}}}
+\newcommand{\const}{\mbox{{\rm const}}}
+\newcommand{\cownt}{\mbox{{\rm COUNT}}}
+\newcommand{\Cownt}{\mbox{{\rm count}}}
+\newcommand{\cram}{\mbox{{{\rm CRAM}}}}
+\newcommand{\cramhard}[2]{\mbox{{{\rm CRAM-HARD}}}[#1,#2]}
+\newcommand{\cramproc}[2]{\mbox{{{\rm CRAM-PROC}}}[#1,#2]}
+\newcommand{\ctl}{\mbox{{\rm CTL}}}
+\newcommand{\ctlp}{\mbox{{\rm CTL$^+$}}}
+\newcommand{\ctls}{\mbox{{\rm CTL$^\star$}}}
+\newcommand{\csp}{\mbox{{\rm CSP}}}
+\newcommand{\cvp}{\mbox{{\rm\sc CVP}}}
+\newcommand{\cycle}{\mbox{{\rm\sc CYCLE}}}
+\newcommand\DEF{\mbox{DEFINED}}    
+\newcommand{\del}{\mbox{{\bf del}}}
+\newcommand{\dfo}{\mbox{{\rm Dyn-FO}}}
+\newcommand{\disc}{\mbox{disc}}
+\newcommand{\dist}{\mbox{{\rm\sc DIST}}}
+\newcommand{\distinct}{\mbox{{\rm distinct}}}
+\newcommand{\dom}{\mbox{{\rm dom}}}
+\newcommand{\dyn}{\mbox{{\rm Dyn-}}}
+\newcommand{\dlog}{\mbox{{\rm dlog}}}
+\newcommand{\dspace}{\mbox{{\rm DSPACE}}}
+\newcommand{\dspacetime}[2]{\mbox{{{\rm DSPACE-TIME}}}[#1,#2]}
+\newcommand{\dst}{\,.\,}       % dot such that
+\newcommand{\dtc}{\mbox{{\rm DTC}}}
+\newcommand{\dtime}{\mbox{{\rm DTIME}}}
+\newcommand{\ea}{\mbox{{\rm EA}}}
+\newcommand{\ef}{\mbox{Ehrenfeucht-Fra\"{\i}ss\'e}}
+\newcommand{\esub}{\preceq}        % elementary substructure
+\newcommand{\EnF}{Ehrenfeucht and Fra\"{\i}ss\'e }
+\newcommand{\Eh}{\mbox{Ehrenfeucht}}
+\newcommand{\emp}{\mbox{\rm emp}}
+\newcommand{\emptyClause}{\Box}
+\newcommand{\etime}{\mbox{{\rm ETIME}}}
+\newcommand{\exptime}{\mbox{{\rm EXPTIME}}}
+\newcommand{\false}{\mbox{{\bf false}}}
+\newcommand{\first}{\mbox{{\rm first}}}
+\newcommand{\find}{\mbox{{\rm find}}}
+\newcommand{\First}{\mbox{{\it First}}}
+\newcommand{\flip}{\mbox{{\rm\sc FLIP}}}
+\newcommand{\fo}{\mbox{{\rm FO}}}
+\newcommand{\fom}{\mbox{{\rm FOM}}}
+\newcommand{\foT}[1]{(\mbox{{\rm FO}}+ \Theta)[#1]}
+\newcommand{\fovar}[2]{\mbox{{{\rm FO-VAR}}}[#1,#2]}
+\newcommand{\fobinvar}[2]{\mbox{{{\rm FO-BINVAR}}}[#1,#2]}
+\newcommand{\fobit}[2]{\mbox{{{\rm FO-VBIT}}}[#1,#2]}
+\newcommand{\form}{\mbox{{\rm form}}}
+\newcommand{\fovarb}[2]{\mbox{{{\rm FO-VAR}}}(\leq,\bit)[#1,#2]}
+\newcommand{\fovars}[2]{\mbox{{{\rm FO-VAR}}}(\leq)[#1,#2]}
+\newcommand{\fovarw}[2]{\mbox{{{\rm FO-VAR}}}\wo[#1,#2]}
+\newcommand{\fosize}{\fo\mbox{-SIZE}}
+\newcommand{\fp}{\mbox{{\rm FP}}}
+\newcommand{\Fr}{\mbox{Fra\"{\i}ss\'e }}
+\newcommand{\free}{\mbox{{\rm free}}}
+%\newcommand{\gcd}{\mbox{{\rm\sc GCD}}}
+\newcommand{\geo}{\mbox{{\rm\sc GEOGRAPHY}}}
+\newcommand{\graphiso}{\mbox{{\rm\sc GRAPH-ISO}}}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\halt}{\mbox{{\rm HALT}}}
+\newcommand{\hc}{\mbox{{\rm\sc HC}}}
+\newcommand{\head}{\mbox{{\rm head}}}
+\newcommand{\hsat}{\mbox{{\rm\sc Horn-SAT}}}
+\newcommand{\hyperexp}{\mbox{{\rm hyperExp}}}
+\newcommand{\id}{\mbox{{\rm ID}}}
+\newcommand{\iden}{\mbox{{\rm id}}}
+\newcommand{\ifp}{\mbox{{\rm IFP}}}
+\newcommand{\im}{\mbox{$\prod$}}
+\newcommand{\ind}{\mbox{{\rm IND}}}
+\newcommand{\indvar}[2]{\mbox{{{\rm IND-VAR}}}[#1,#2]}
+\newcommand{\init}{\mbox{{\bf init}}}
+\newcommand{\inj}{\mbox{{\rm Inj}}}
+\newcommand{\inv}{\mbox{{\rm inv}}}
+\newcommand{\ip}{\mbox{{\rm IP}}}
+\newcommand{\ins}{\mbox{{\rm ins}}}
+\newcommand{\insb}{\mbox{{\bf ins}}}
+\newcommand{\isomap}{\stackrel{\iso}{\rightarrow}}
+\newcommand{\length}{\mbox{{\rm length}}}
+\newcommand{\lfp}{\mbox{{\rm LFP}}}
+\newcommand{\lt}{\mbox{{\bf let}}}
+\newcommand{\logr}{\leq_{\mbox{{\scriptsize log}}}}
+\newcommand{\Accept}{\mbox{{\bf accept }}}
+\newcommand{\Else}{\mbox{{ \bf else }}}
+\newcommand{\For}{\mbox{{\bf for }}}
+\newcommand{\Halt}{\mbox{{\bf halt }}}
+\newcommand{\If}{\mbox{{\bf if }}}
+\newcommand{\Or}{\mbox{{\bf OR }}}
+\newcommand{\Output}{\mbox{{\bf output }}}
+\newcommand{\Reject}{\mbox{{\bf reject }}}
+\newcommand{\Return}{\mbox{{\bf return}}}
+\newcommand{\Then}{\mbox{{ \bf then }}}
+\newcommand{\While}{\mbox{{\bf while }}}
+\newcommand{\Do}{\mbox{{ \bf do }}}
+\newcommand{\To}{\mbox{{ \bf to }}}
+\newcommand{\Item}{\mbox{{\rm Item}}}
+\newcommand{\iter}{\mbox{{\rm ITER}}}
+\newcommand{\itera}[1]{\mbox{{\rm ITER}}[\mbox{{\rm arity }}#1]}
+\newcommand{\iterd}[2]{\mbox{{\rm ITER}}[#1,\mbox{{\rm arity }}#2]}
+\newcommand{\iterp}{\mbox{{\rm ITER}}}
+\newcommand{\ket}[1]{|#1\! >}
+\newcommand{\ksat}{\mbox{{\rm\sc 2-SAT}}}
+\newcommand{\lgc}{\sel_{\hbox{{\scriptsize GC}}}}
+\newcommand{\lh}{\mbox{{\rm LH}}}
+\newcommand{\logspace}{\mbox{{\rm L}}}
+\newcommand{\lollipop}{\multimap}
+\newcommand{\ltl}{\mbox{{\rm LTL}}}
+\newcommand{\Last}{\mbox{{\it Last}}}
+\newcommand{\maj}{\mbox{{\rm\sc MAJ}}}
+\newcommand{\Math}{\mbox{{\rm\sc MATH}}}
+\newcommand{\maparg}[1]{\stackrel{#1}{\rightarrow}}
+\newcommand{\mclique}{\mbox{{\rm\sc MAX-CLIQUE}}}
+\newcommand{\maxkf}{\mbox{{\rm\sc MAX-$k$-FSAT}}}
+\newcommand{\maxthree}{\mbox{{\rm\sc MAX-$3$-SAT}}}
+\newcommand{\mcvp}{\mbox{{\rm\sc MCVP}}}
+\newcommand{\mdist}{\mbox{{\rm min-dist}}}
+\newcommand{\mn}{{\it min}}  %  and that's final
+\newcommand{\modm}[1]{\hspace*{.5em}({\rm mod }\, #1)}
+\newcommand{\monadic}{\mbox{{\rm monadic}}}
+\newcommand{\mult}{\mbox{{\rm MULT}}}
+\newcommand{\mx}{\mbox{{\it max}}}  %  and that's final
+\newcommand{\MX}{\mbox{{\sc MAX}}}  % for max degree of a fixed point
+\newcommand{\mychoose}[2]{\left({#1 \atop #2}\right)} 
+\newcommand{\mymod}{\mbox{{\rm mod }}}
+\newcommand{\fmod}[1]{\mbox{{\rm MOD$_{\mbox{fin}}$}}[#1]}
+\newcommand{\Mod}[1]{\mbox{MOD}[#1]}
+\newcommand{\nc}{\mbox{{\rm NC}}}
+\newcommand{\ncs}[1]{\mbox{{\rm NC$^{#1}$}}}
+\newcommand{\acs}[1]{\mbox{{\rm AC$^{#1}$}}}
+\newcommand{\sacs}[1]{\mbox{{\rm sAC$^{#1}$}}}
+\newcommand{\ncmod}[3]{#1\not\equiv #2\,({\rm mod}\, #3)}
+\newcommand{\ncomp}{\mbox{{\rm \#comp}}}
+\newcommand{\ndist}{\mbox{{\rm\sc NDIST}}}
+\newcommand{\negskip}{\vspace{-1.0em}}
+\newcommand{\New}{\mbox{{\rm New}}}
+\newcommand{\Next}{\mbox{{\rm\sc NEXT}}}
+\newcommand{\nil}{\mbox{{\bf nil}}}
+\newcommand{\nl}{\mbox{{\rm NL}}}
+\newcommand{\nmax}{\mbox{{\rm Not-Max}}}
+\newcommand{\nmsf}{\mbox{{\rm Not-MSF}}}
+\newcommand{\nopath}{\mbox{{\rm NOPATH}}}
+\newcommand{\np}{\mbox{{\rm NP}}}
+\newcommand{\npc}{\mbox{{\rm NPC}}}
+\newcommand{\nramtime}{\mbox{{\rm NRAM-TIME}}}
+\newcommand{\nspace}{\mbox{{\rm NSPACE}}}
+\newcommand{\ntime}{\mbox{{\rm NTIME}}}
+\newcommand{\numb}{\mbox{{\rm NUMBER}}}
+\newcommand{\nx}{\mbox{{\rm NEXT}}}
+\newcommand{\oneLO}{\mbox{{\rm 1LO}}}
+\newcommand{\twoLO}{\mbox{{\rm 2LO}}}
+\newcommand{\occur}{\mbox{{\rm Occur}}}
+\newcommand{\op}{\mbox{{\rm op}}}
+\newcommand{\opt}{\mbox{{\rm OPT}}}
+\newcommand{\ord}{\mbox{Ord}}
+\newcommand{\ov}{\overline}
+\newcommand{\p}{\mbox{{\rm P}}}
+\newcommand{\parity}{\mbox{{\rm\sc PARITY}}}
+\newcommand{\Path}{\mbox{{\rm\sc PATH}}}
+\newcommand{\pay}{\mbox{$\mapsto$}}  % arrow in todo list
+\newcommand{\pcp}{\mbox{{\rm PCP}}}
+\newcommand\pF{{\cal PF}}        % the set of partial, recursive functions
+\newcommand{\ph}{\mbox{{\rm PH}}}
+\newcommand{\plus}{\mbox{{\rm PLUS}}}
+\newcommand{\poly}{/\mbox{{\rm poly}}}
+\newcommand{\polylog}{\mbox{{\rm polylog}}}
+\newcommand{\power}{\wp}
+\newcommand{\primrec}{\mbox{{\bf Primitive Recursive}}}
+\newcommand{\primrecF}{\mbox{{\bf PrimRecFcns}}}
+\newcommand{\primrecP}{\mbox{{\bf PrimRecPreds}}}
+\newcommand{\recF}{\mbox{{\rm Partial
+RecursiveFcns}}}
+\newcommand{\grecF}{\mbox{{\rm G\"odelRecFcns}}}
+\newcommand{\pr}{\leq_{\mbox{{\scriptsize p}}}}
+\newcommand{\prob}{\mbox{{\rm Prob}}}
+\newcommand{\prog}{\mbox{{\rm\sc PROG}}}
+\newcommand{\pspace}{\mbox{{\rm PSPACE}}}
+\newcommand{\psubset}{{\raisebox{.03in}{\mbox{{\tiny \begin{tabular}{c}
+ $\subset$\\[-.5ex]
+ $\ne$
+ \end{tabular}}}}}}
+\newcommand{\pstc}{\mbox{{\rm pos STC}}}
+\newcommand{\ptc}{\mbox{{\rm pos TC}}}
+\newcommand{\qb}{\mbox{{\rm QB}}}
+\newcommand{\uqb}{\mbox{{\rm UQB}}}  % universal quantifier block
+\newcommand{\pce}{+\!:=}
+\newcommand{\spce}{\;+\!:=\;}
+\newcommand{\mce}{-\!:=}
+\newcommand{\smce}{\;-\!:=\;}
+\newcommand{\pe}{+\!=}
+\newcommand{\spe}{\;+\!=\;}
+\newcommand{\me}{-\!=}
+\newcommand{\sme}{\;-\!=\;}
+\newcommand{\qe}{\quad =\quad}
+\newcommand{\qE}{\quad \equiv\quad}
+\newcommand{\qqe}{\qquad =\qquad}
+\newcommand{\qqE}{\qquad \equiv\qquad}
+\newcommand{\qfr}{\leq_{\hbox{{\scriptsize qf}}}}
+\newcommand{\qsep}{\, . \,}
+\newcommand{\qLra}{\quad\Leftrightarrow\quad}
+\newcommand{\qlra}{\quad\leftrightarrow\quad}
+\newcommand{\qqLra}{\qquad\Leftrightarrow\qquad}
+\newcommand{\qqlra}{\qquad\leftrightarrow\qquad}
+\newcommand{\qr}{\mbox{qr}}
+\newcommand{\qra}{\quad \rightarrow\quad}
+\newcommand{\qR}{\quad \Rightarrow\quad}
+\newcommand{\qRa}{\quad \Rightarrow\quad}
+\newcommand{\qsat}{\mbox{{\rm\sc QSAT}}}
+\newcommand{\query}{\mbox{{\bf query}}}
+\newcommand{\ramtime}{\mbox{{\rm RAM-TIME}}}
+\newcommand{\rank}{\mbox{rank} }
+\newcommand{\rng}{\mbox{{\rm rng}}}
+\newcommand{\Rdual}{\raisebox{0.2ex}{$\stackrel{\sim}{{\cal R}}$}}
+\newcommand{\reach}{\mbox{{\rm\sc REACH}}}
+\newcommand{\RE}{\mbox{{\rm r.e.}}}
+\newcommand{\reacha}{\mbox{{\rm\sc REACH$_a$}}}
+\newcommand{\reachd}{\mbox{{\rm\sc REACH$_d$}}}
+\newcommand{\reachdl}{\mbox{{\rm\sc REACH$_{d\ell}$}}}
+\newcommand{\reachl}{\mbox{{\rm\sc REACH$_\ell$}}}
+\newcommand{\reachu}{\mbox{{\rm\sc REACH$_u$}}}
+\newcommand{\recursive}{\mbox{{\rm Recursive}}}
+\newcommand{\regular}{\mbox{{\rm Regular}}}
+\newcommand{\Res}{\mbox{{\rm Res}}}
+\newcommand{\rst}[2]{#1|_{#2}}
+\newcommand{\rr}{\leq_{\mbox{{\scriptsize r}}}}
+\newcommand{\sac}{\mbox{{\rm sAC}}}
+\newcommand{\sat}{\mbox{{\rm\sc SAT}}}
+\newcommand{\Sat}{\mbox{{\rm\sc 3-SAT}}}
+\newcommand{\sbar}{\; |\;}
+\newcommand{\sdot}{\; .\;}
+\newcommand{\se}{\; =\;}
+\newcommand{\sE}{\; \equiv\;}
+\newcommand{\Sin}{\;\in\;}
+\newcommand{\lsyn}{\lbrack\!\lbrack}
+\newcommand{\rsyn}{\rbrack\!\rbrack}
+\newcommand{\semp}[1]{\lsyn #1 \rsyn}
+\newcommand{\sIn}{\;\in\;}
+\newcommand{\qIn}{\quad\in\quad}
+\newcommand{\sLra}{\;\Leftrightarrow\;}
+\newcommand{\sla}{\;\leftarrow\;}
+\newcommand{\slra}{\;\leftrightarrow\;}
+\newcommand{\sra}{\;\rightarrow\;}
+\newcommand{\sepimplies}{-\!\!\star\;}
+\newcommand{\Set}{\mbox{{\bf set}}}
+\newcommand{\size}{\mbox{{\rm SIZE}}}
+\newcommand{\smb}[1]{\;\mbox{{\rm #1}}\;}
+\newcommand{\so}{\mbox{{\rm SO}}}
+\newcommand{\soa}{\mbox{{\rm SO}$\forall$}}
+\newcommand{\soe}{\mbox{{\rm SO}$\exists$}}
+\newcommand{\soh}{\mbox{{\rm SO-Horn}}}
+\newcommand{\soeh}{\mbox{\soe{\rm -Horn}}}
+\newcommand{\sok}{\mbox{{\rm SO-Krom}}}
+\newcommand{\som}{\mbox{{\rm SOM}}}
+\newcommand{\Space}{\mbox{{\rm SPACE}}}
+\newcommand{\ess}{\mbox{{\red\bf S}}}
+\newcommand{\dee}{\mbox{{\green\bf D}}}
+\newcommand{\spec}{\mbox{{\rm spec}}}
+\newcommand{\sq}{\mbox{{\rm sq}}}
+\newcommand{\sRa}{\; \Rightarrow\;}
+\newcommand{\sss}{\;\subseteq\;}
+\newcommand{\qsubseteq}{\quad\subseteq\quad}
+\newcommand{\Sol}{\mbox{{\rm Sol}}}
+\newcommand{\St}{\mbox{{\rm \,s.t.\,}}}
+\newcommand{\straight}{\mbox{{\rm\sc STRAIGHT}}}
+\newcommand{\strs}{\mbox{{\rm Stars}}}
+\newcommand{\struct}[1]{\mbox{{\rm STRUC}}[#1]}
+\newcommand{\strucn}[2]{\mbox{{\rm STRUC}}_{#1}[#2]}
+\newcommand{\fstruc}[1]{\mbox{{\rm STRUC$_{\mbox{fin}}$}}[#1]}
+\newcommand{\struc}[1]{\mbox{{\rm STRUC}}[#1]}
+\newcommand{\sx}[1]{_{\mbox{{\scriptsize #1}}}}
+\newcommand{\suc}{\mbox{{\rm Suc}}}
+\newcommand{\succinct}{\mbox{{\rm\sc SUCCINCT }}}
+\newcommand{\sub}[2]{#1/#2}         % substitute a/x
+\newcommand{\superset}{\supset}
+\newcommand{\superseteq}{\supseteq}
+% temporal logic operators
+\newcommand{\tA}{\mbox{{\bf A}}}
+\newcommand{\tB}{\mbox{{\bf B}}}
+\newcommand{\tE}{\mbox{{\bf E}}}
+\newcommand{\tF}{\mbox{{\bf F}}}
+\newcommand{\tG}{\mbox{{\bf G}}}
+\newcommand{\tR}{\mbox{{\bf R}}}
+\newcommand{\tU}{\mbox{{\bf U}}}
+\newcommand{\tW}{\mbox{{\bf W}}}
+\newcommand{\tX}{\mbox{{\bf X}}}
+\newcommand{\ta}{\mbox{{\scriptsize\bf A}}}
+\newcommand{\tb}{\mbox{{\scriptsize\bf B}}}
+\newcommand{\te}{\mbox{{\scriptsize\bf E}}}
+\newcommand{\tu}{\mbox{{\scriptsize\bf U}}}
+\newcommand{\tx}{\mbox{{\scriptsize\bf X}}}
+\newcommand{\tail}{\mbox{{\rm tail}}}
+\newcommand{\taut}{\mbox{{\rm\sc TAUT}}}
+\newcommand{\tc}{\mbox{{\rm TC}}}
+\newcommand{\term}{\mbox{{\rm term}}}
+\newcommand{\Th}{\mbox{{\rm Theory}}}
+\newcommand{\thc}{\mbox{{\rm ThC}}}
+\newcommand{\thOrd}{\mbox{$^{\rm th}$}}
+\newcommand{\Times}{\mbox{{\rm TIMES}}}
+\newcommand{\tr}{\mbox{{\bf Tr}}}  % trace
+\newcommand{\trianglelt}{\lhd}
+\newcommand{\trianglele}{\unlhd}
+\newcommand{\trianglegt}{\rhd}
+\newcommand{\trianglege}{\unrhd}
+\newcommand{\tridown}{\bigtriangledown}
+\newcommand{\triup}{\bigtriangleup}
+\newcommand{\true}{\mbox{{\bf true}}}
+\newcommand{\tsp}{\mbox{{\rm\sc TSP}}}
+\newcommand{\tw}{\mbox{{\rm tw}}}
+\newcommand{\two}{\mbox{{\rm\sc TWO}}}
+\newcommand{\ultra}{\mbox{{{\rm ULTRA}}}}
+\newcommand{\un}[1]{\underline{#1}}
+\newcommand{\unary}{\mbox{{\rm unary}}}
+\newcommand{\union}{\mbox{{\rm union}}}
+\newcommand{\yesC}{\mbox{{\rm YesComp}}}
+\newcommand{\Value}{\mbox{{\rm Value}}}
+\newcommand{\var}{\mbox{{\rm VAR}}}
+\newcommand{\vargr}{\mbox{{\it var}}}
+\newcommand{\vc}{\mbox{{\it vc}}}
+\newcommand{\vbit}{\mbox{{\rm VBIT}}}
+\newcommand{\varsz}[2]{\mbox{{{\rm VAR-SZ}}}[#1,#2]}
+\newcommand{\varszw}[2]{\mbox{{{\rm VAR-SZ}}}\wo[#1,#2]}
+\newcommand{\wo}{\mbox{{\rm \small (wo$\leq$)}}}
+\newcommand{\wob}{\mbox{{\rm \small (wo BIT)}}}
+\newcommand{\wtc}{\mbox{{\rm W$_5$TC}}} 
+\newcommand{\zpa}{\hspace*{.25in}}
+\newcommand{\zpb}{\hspace*{.5in}}
+\newcommand{\zpc}{\hspace*{.75in}}
+\newcommand{\zpd}{\hspace*{1.0in}}
+\newcommand{\zpl}{\mbox{{\rm ZPL}}}
+\newcommand\pf{\smallskip\noindent{\bf Proof:}}
+%\newcommand{\oldqed}{\penalty 1000 \hfill\penalty 1000\rule{5pt}{8pt}\par\medskip}
+\newcommand{\qed}{\penalty 1000 \hfill\penalty 1000$\Box$\par\medskip}
+\newenvironment{proof}{\pf }{\qed }
+\newenvironment{framework}{\medskip\noindent\refstepcounter{theorem}{\bf
+Framework \thetheorem\ }}{\qed }
+\newenvironment{sproof}{\pf }{ }
+\newenvironment{sql}{\medskip\noindent\refstepcounter{theorem}{\bf
+SQL Query \thetheorem\ }}{ }
+\newenvironment{datalog}{\medskip\noindent\refstepcounter{theorem}{\bf
+Datalog Query \thetheorem\ }}{ }
+\newenvironment{definition}{\medskip\noindent\refstepcounter{theorem}{\bf
+Definition \thetheorem\ }}{\qed }
+\newenvironment{problem}{\medskip\noindent\refstepcounter{theorem}{\bf
+Open Problem \thetheorem\ }}{ }
+\newenvironment{sdefinition}{\medskip\noindent\refstepcounter{theorem}{\bf
+Definition \thetheorem\ }}{ }
+\newenvironment{invariant}{\medskip\noindent\refstepcounter{theorem}{\bf
+Invariant \thetheorem\ }}{\qed }
+\newenvironment{sinvariant}{\medskip\noindent\refstepcounter{theorem}{\bf
+Invariant \thetheorem\ }}{ }
+\newenvironment{sexample}{\medskip\noindent\refstepcounter{theorem}{\bf
+Example \thetheorem\ }}{ }
+\newenvironment{example}{\medskip\noindent\refstepcounter{theorem}{\bf
+Example \thetheorem\ }}{\qed }
+\newenvironment{exercise}{\medskip\noindent\refstepcounter{theorem}{\bf
+Exercise \thetheorem\ }}{\qed }
+\newenvironment{sexercise}{\medskip\noindent\refstepcounter{theorem}{\bf
+Exercise \thetheorem\ }}{ }
+\newcounter{myfig}
+\newcommand{\startfig}{\begin{figure}\refstepcounter{theorem}
+                      \setcounter{myfig}{\value{theorem}} }
+\newcommand{\eJJ}{\end{figure}}
+\newenvironment{myfigure}{\startfig}{\eJJ}     
+\newcommand{\pdfFig}[3]{\refstepcounter{theorem}\label{#1}
+\begin{center}
+\includegraphics[width=#3\textwidth]{#1.pdf}
+\end{center}
+\vspace*{-.3in}
+\noindent{\bf Figure \thetheorem}: {\small #2}
+    \par\smallskip}
+\newcommand{\epsFig}[3]{\refstepcounter{theorem}\label{#1}
+\begin{center}
+\includegraphics[width=#3\textwidth]{#1.eps}
+\end{center}
+\vspace*{-.3in}
+\noindent{\bf Figure \thetheorem}: {\small #2}
+    \par\smallskip}
+\newcounter{myeqn}
+\newcommand{\myequation}[2]{\par\refstepcounter{theorem}
+   \setcounter{myeqn}{\value{theorem}}\label{#1} 
+\noindent\makebox[\textwidth]{\hfill${\displaystyle #2 }$\hfill
+            {\mbox{\rm (\ref{#1})}}}
+    \par\smallskip}
+% same for two-column, conferences
+\newcounter{dmyeqn}
+\newcommand{\dmyequation}[2]{\par\refstepcounter{theorem}
+   \setcounter{dmyeqn}{\value{theorem}}\label{#1} 
+   \smallskip\noindent\makebox[3.25in]{\hfill${\displaystyle #2 }$\hfill
+   {\rm (\ref{#1})}} 
+    \par\smallskip}
+\newcommand{\regequation}[2]{\begin{equation}\label{#1}
+                                    #2
+                             \end{equation}}     
+\newcommand{\lline}[1]{\par\medskip
+    \noindent\hspace*{-.4in}\makebox[\textwidth]{#1\hfill}
+    \par\medskip\noindent}
+\newcommand{\labeleqn}[2]{\par\medskip
+    \noindent\makebox[\textwidth]{\hfill${\displaystyle #2 }$\hfill $#1$}
+    \par\medskip\noindent}
+\newcommand{\oneLine}[1]{\par\smallskip
+    \noindent\makebox[\textwidth]{#1}
+    \par\smallskip\noindent}
+\newcommand{\seqn}[1]{\labeleqn{\Box}{#1}}
+\newcommand{\narrowlabeleqn}[2]{\par\medskip
+    \noindent\makebox[6.8in]{\hfill${\displaystyle #2 }$\hfill $#1$}
+    \par\medskip\noindent}
+% MYfig:  same as myfig but it is not a figure so it can't move where it shouldn't
+\newcounter{MYfig}
+\newcommand{\Startfig}{\par\smallskip\refstepcounter{theorem}
+                      \setcounter{MYfig}{\value{theorem}} }
+\newcommand{\Ejj}{\par\smallskip}
+\newenvironment{MYfigure}{\Startfig}{\Ejj}
+
+\newcommand{\snieqn}{\begin{equation}\refstepcounter{theorem}}
+\newcommand{\enieqn}{\end{equation}}
+\newenvironment{nieqn}{\snieqn}{\enieqn}
+\newcommand{\sniarray}{\begin{eqnarray}\refstepcounter{theorem}}
+\newcommand{\eniarray}{\end{eqnarray}}
+\newenvironment{niarray}{\sniarray}{\eniarray}
+\renewcommand{\theequation}{\thetheorem}
+\newcommand{\nilabel}[1]{\\ \refstepcounter{theorem}\label{#1}}  % place at end of
+						       % each additional
+						       % labeled line in
+						       % an niarray
+\newcommand{\nn}{\nonumber \\}
+
+
+% right justified equation for two-column, conferences
+\newcommand{\drteqn}[1]{\noindent\makebox[3.25in]{\hfill${\displaystyle #1 }$}}
+%left justified equation for two-column, conferences
+\newcommand{\dlteqn}[1]{\noindent\makebox[3.25in]{${\displaystyle #1 }$\hfill}}
+\hyphenation{Abite-boul Bool-ean it-er-at-ed poly-no-mial poly-no-mial-time
+   quan-ti-fier quan-ti-fier-free De-li-lah Sam-son}
+%the following makes atheorem numbered numerically:
+\newtheorem{atheorem}{Theorem}
+\newtheorem{acorollary}[atheorem]{Corollary}
+\newtheorem{alemma}[atheorem]{Lemma}
+\newtheorem{aprop}[atheorem]{Proposition}
+\newtheorem{afact}[atheorem]{Fact}
+\newtheorem{aconjecture}[atheorem]{Conjecture}
+\newcommand{\amyequation}[2]{\par\refstepcounter{atheorem}
+   \setcounter{myeqn}{\value{atheorem}}\label{#1} 
+   \smallskip\noindent\makebox[\textwidth]{\hfill${\displaystyle #2 }$\hfill {\rm (\ref{#1})}} }
+
+\newcounter{myafig}
+\newcommand{\startafig}{\begin{figure}\refstepcounter{atheorem}
+                      \setcounter{myafig}{\value{atheorem}} }
+\newenvironment{myafigure}{\startafig}{\eJJ}     
+\newcounter{myaeqn}
+\newcommand{\myaequation}[2]{\par\refstepcounter{atheorem}
+   \setcounter{myaeqn}{\value{atheorem}}\label{#1} 
+   \medskip
+    \noindent\makebox[\textwidth]{\hfill${\displaystyle #2 }$\hfill
+            {\mbox{\rm (\ref{#1})}}}
+    \par\medskip\noindent}
+\newcommand{\narrowEquation}[2]{\par\refstepcounter{atheorem}
+   \setcounter{myaeqn}{\value{atheorem}}\label{#1} 
+   \medskip
+    \noindent\makebox[6.5in]{\hfill${\displaystyle #2 }$\hfill
+            {\mbox{\rm (\ref{#1})}}}
+    \par\medskip\noindent}
+
+\newcommand{\leftPicture}[2]{\par\noindent\begin{minipage}[t]{.48\textwidth} #1
+                             \end{minipage} \ 
+			     \begin{minipage}[t]{.48\textwidth} #2
+                             \end{minipage}}
+%\renewcommand{\Box}{\fbox{\rule{0cm}{.04cm}\rule{.04cm}{0cm}}}% theorem_section.tex
+%the following make everything numbered like theorems, within sections.
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{meta-proposition}[theorem]{Meta-Proposition}
+\newtheorem{note}[theorem]{Note}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{proviso}[theorem]{Proviso}         
+\newtheorem{question}[theorem]{Question}         
+\newtheorem{remark}[theorem]{Remark}         
+\setcounter{theorem}{0}
+

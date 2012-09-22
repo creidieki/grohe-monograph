@@ -1,0 +1,64 @@
+\documentclass[12pt]{article}
+\usepackage{amssymb,amsfonts,amsmath} % Typical maths resource packages
+\usepackage{mathdots}
+\usepackage{graphicx}                 % Packages to allow inclusion of graphics
+\usepackage{color}                    % For creating coloured text and background
+\usepackage{hyperref}                 % For creating hyperlinks in cross references
+\usepackage{times}
+\usepackage{mydefs}                   % mydefs.sty is my standard tex macros
+\longwide
+\begin{document}
+% p. 83: 
+Def.  A {\bf Tree Decomposition} of $G$ is $(T,\beta)$ where $T$ is a directed tree,  $\beta: V(T) \rightarrow
+\power(V(G))$ and
+
+T1: $\forall v\in V(G) ( \bigset{t \in V(T)}{v \in \beta(t)}$ induces a subtree of $T)$,
+ [the set of nodes containing a particular vertex are connected], and 
+
+T2: $\forall e\in E(G)\exists t \in V(T) ( e\subseteq \beta(t))$ [every edge is in some bag].
+\[
+\begin{array}{rcll}
+\gamma(t) &=& {\displaystyle \bigcup_{t \unlhd u} \beta(u)} &  \mbox{{\bf cone} at }t\\[3.5ex]
+\sigma(t) &=& \left\{\begin{array}{cl}
+               \emptyset & \mbox{if $t$ is the root of $T$}\\
+               \beta(t) \cap \beta(p)& \mbox{if $p$ is $t$'s parent}
+               \end{array}\right.  &  \mbox{{\bf separator} at }t\\[2ex]
+\alpha(t) &=& \gamma(t) - \sigma(t) & \mbox{{\bf component} at }t\\[1ex]
+\beta(t) &=& \gamma(t) -  {\displaystyle \bigcup_{c \in N_+(t)} \alpha(c) }&  \mbox{{\bf bag} at }t
+\end{array}\]
+
+Facts about Tree Decompositions:
+
+\begin{enumerate}
+\item $\forall t \in V(T) (\sigma(t)$ separates $\gamma(t)$ from $V(G) - \alpha(t)$.
+\item For every connected subset $W \subseteq V(G), \bigset{t}{W \cap \beta(t) \ne \emptyset}$ is a
+  subtree of $T$ and $\bigset{t}{W\subseteq \beta(t)}$ is a subtree or $\emptyset$.
+\item Let $H_1, \ldots, H_m$ be connected subgraphs that pairwise either intersect or have an edge
+  between them.  Then there is a $t$ such that $\beta(t)$ meets all the $H_i$.
+\item In particular, for every clique $X\subseteq V(G) \exists t ( X \subseteq \beta(t))$.
+\end{enumerate}
+
+4.2 Treelike Decompositions
+
+Two nodes are equivlant $t \smile t'$
+
+Def. a {\bf treelike decomposition} of a graph $G$ satisfies:
+
+TL.1:  $D$ is acyclic.
+
+TL.2  $\forall t ( \alpha(t) \cap \sigma(t) = \emptyset \sland N^G(\alpha(t)) \subseteq
+\sigma(t)$.
+
+TL.3 $\forall t \forall u \in N^D_{+}(t) (\alpha(u) \subseteq \alpha(t) \sland \gamma(u) \subseteq
+\gamma(t))$. 
+
+TL.4 $\forall t \forall u_1,u_2 \in N^D_{+}(t) (u_1 \smile u_2 \slor [\alpha(u_1) \cap \alpha(u_2) =
+\emptyset \sland \alpha(u_1) \cap \sigma(u_2) = \emptyset \sland \alpha(u_2) \cap \sigma(u_1) =
+\emptyset])$. 
+
+TL.5 For all connected components $A$ of $G$ $\exists t ( \sigma(t) = \emptyset \sland \alpha(t) = A)$
+
+
+
+
+\end{document}

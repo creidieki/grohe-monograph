@@ -1,14 +1,24 @@
 LATEX = pdflatex
 DOT = dot
 
-all: tree_decomp_examples.pdf treelike_decomp_of_trees_examples.pdf
+GRAPHVIZFILES = tree_decomp_examples.pdf treelike_decomp_of_trees_examples.pdf
+LATEXFILES = groheNotation.pdf groheCh4TreelikeDecompositions.pdf
 
-tree_decomp_examples.pdf: tree_decomp_examples.dot
-	${DOT} -Tpdf:quartz tree_decomp_examples.dot -o tree_decomp_examples.pdf
+all: $(GRAPHVIZFILES) $(LATEXFILES)
 
-treelike_decomp_of_trees_examples.pdf: treelike_decomp_of_trees_examples.dot
-	${DOT} -Tpdf:quartz treelike_decomp_of_trees_examples.dot -o treelike_decomp_of_trees_examples.pdf
+$(GRAPHVIZFILES): %.pdf: %.dot
+	${DOT} -Tpdf:quartz $< -o $@
+
+$(LATEXFILES): %.pdf: %.tex mydefs.sty
+	${LATEX} $<
+	${LATEX} $<
+
+# tree_decomp_examples.pdf: tree_decomp_examples.dot
+# 	${DOT} -Tpdf:quartz tree_decomp_examples.dot -o tree_decomp_examples.pdf
+
+# treelike_decomp_of_trees_examples.pdf: treelike_decomp_of_trees_examples.dot
+# 	${DOT} -Tpdf:quartz treelike_decomp_of_trees_examples.dot -o treelike_decomp_of_trees_examples.pdf
 
 clean:
-	-rm -f tree_decomp_examples.pdf treelike_decomp_of_trees_examples.pdf
+	-rm -f $(GRAPHVIZFILES) $(LATEXFILES)
 
