@@ -1,0 +1,559 @@
+\documentclass{beamer}
+
+%\usepackage{pgf}
+%\usepackage[autosize,pgf]{dot2texi}
+%\usepackage{tikz}
+\usepackage{mystyle}
+\renewcommand \o \overline
+
+\setbeamersize{text margin left=15pt, text margin right=15pt}
+
+\setbeamercovered{transparent}
+
+\begin{document}
+\begin{frame}
+  Descriptive view of everything:
+  \begin{itemize}
+  \item Graphs are on the vocabulary
+    \begin{equation*}
+      \tau_g \define \bigl\langle E^2 \bigr\rangle
+    \end{equation*}
+    and are required to be symmetric.
+    \pause
+    \item We want to define decomposition schemes as FO[ITER] queries
+      from $\tau_g$ to some vocabulary of treelike decompositions.
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  ``Vocabularies for tuple structures''
+  \begin{itemize}
+  \item We've seen several constructions of tree[like] decompositions where
+    each node is constructed from a fixed-arity tuple of vertices.
+  \item Our objects of interest (bags, separators, components, cones) are
+    sets of vertices, one at each node.
+    \pause
+  \item Awkward: make these binary relations on nodes?  Tree[like]
+    decompositions are defined on the vocabulary $\bigl\langle \sigma^2,
+      \alpha^2 \bigr\rangle$
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  Better solution (and the one Grohe uses):
+  \begin{itemize}
+  \item Query onto a decomposition has \emph{dimension} $d$ (arity).
+  \item Nodes are $d$-tuples of vertices.
+  \item Node variables written $\overline{x}$, vertex variables written
+    $x$
+    \pause
+  \item Vocabulary of decompositions:
+    \begin{equation*}
+      \tau_{d} \define \bigl\langle E(\overline{x}, \overline{y}),
+        \sigma(\overline{x}, y), \alpha(\overline{x}, y) \bigr\rangle
+    \end{equation*}
+    \pause
+  \item A \emph{decomposition scheme} (i.e. FO[IFP] query) from $\tau_{g}$
+    to $\tau_d$ is then:
+    \begin{equation*}
+      \Lambda = \bigl(\lambda_V(\overline{x}), \lambda_E(\overline{x},
+      \overline{y}), \lambda_\sigma(\overline{x}, y),
+      \lambda_\alpha(\overline{x}, y)\bigr)
+    \end{equation*}
+    \begin{itemize}
+    \item Recall $\lambda_V(\overline{x})$ defines the nodes/universe.
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \begin{equation*}
+    \Lambda = \bigl(\lambda_V(\overline{x}), \lambda_E(\overline{x},
+    \overline{y}), \lambda_\sigma(\overline{x}, y),
+    \lambda_\alpha(\overline{x}, y)\bigr)
+  \end{equation*}
+  \begin{equation*}
+    \tau_{d} \define \bigl\langle E(\overline{x}, \overline{y}),
+      \sigma(\overline{x}, y), \alpha(\overline{x}, y) \bigr\rangle
+  \end{equation*}
+  \begin{equation*}
+    \tau_{g} \define \bigl\langle E^2 \bigr\rangle
+  \end{equation*}
+  \begin{itemize}
+  \item $\lambda$ formulas in FO[IFP].
+    \pause
+  \item $\Lambda : \text{STRUCT}[\tau_g] \to \text{STRUCT}[\tau_d]$
+    \pause
+  \item $\Lambda : \text{WFF}[\tau_d] \to \text{WFF}[\tau_g]$. (dual)
+    \pause
+  \item   Integrity Constraints:
+    \begin{itemize}
+    \item $\tau_g$ contains undirected graphs
+    \item $\tau_d$ contains DAGs
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  Bag and Cone are FO definable:
+  \begin{itemize}
+  \item We have
+    \begin{equation*}
+      \tau_{d} \define \bigl\langle E(\overline{x}, \overline{y}),
+      \sigma(\overline{x}, y), \alpha(\overline{x}, y) \bigr\rangle
+    \end{equation*}
+  \item Cone:
+    \begin{equation*}
+      \gamma(\overline{t}, x) \define \sigma(\overline{t}, x) \Or
+      \alpha(\overline{t}, x)
+    \end{equation*}
+  \item Bag:
+    \begin{align*}
+      \beta(\overline{t}, x) &\define \gamma(\overline{t}, x) \And \Not
+      \exists \overline{u}\ E(\overline{t}, \overline{u}) \And
+      \alpha(\overline{u}, x)
+    \end{align*}
+  \end{itemize}
+\end{frame}
+% % \begin{dot2tex}
+% % \end{dot2tex}
+
+\begin{frame}
+  Tree decompositions are FO[IFP] definable:
+  \begin{equation*}
+    \tau_{d} \define \bigl\langle E(\overline{x}, \overline{y}),
+    \sigma(\overline{x}, y), \alpha(\overline{x}, y) \bigr\rangle
+  \end{equation*}
+  \begin{itemize}
+  \item \textbf{(T.0)}: $E$ forms a directed tree.
+  \item \textbf{T.1}: For all $x$, the set $\{ \overline{t} \st
+    \beta(\overline{t}, x)\}$ forms a subtree under $E$.
+  \item \textbf{T.2}: For all $x$, $y$ with $E(x, y)$ (in original graph)
+    there exists $\overline{t}$ s.t. $\beta(\overline{t}, x) \And
+    \beta(\overline{t}, y)$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  Double-smile equivalence: FO-definable.
+  $\overline{x} \doublesmile \overline{y} \define \sigma(\overline{x}, -) =
+  \sigma(\overline{y}, -) \And \alpha(\overline{x}, -) =
+  \alpha(\overline{z}, -)$
+
+  or equivalently
+
+  $\overline{x} \doublesmile \overline{y} \define (\forall z)\  \sigma(\overline{x}, z) \Iff
+  \sigma(\overline{y}, z) \And \alpha(\overline{x}, z) \Iff
+  \alpha(\overline{y}, z)$  
+\end{frame}
+
+\begin{frame}
+  Treelike decompositions are FO[IFP] definable:
+  \begin{equation*}
+    \tau_{d} \define \bigl\langle E(\overline{x}, \overline{y}),
+    \sigma(\overline{x}, y), \alpha(\overline{x}, y) \bigr\rangle
+  \end{equation*}
+  \begin{itemize}
+  \item \textbf{TL.1}: $E$ is acyclic.
+  \item \textbf{TL.2a}: $\forall \overline{t} \Not \exists x\ 
+    \alpha(\overline{t}, x) \And \sigma(\overline{t}, x)$
+  \item \textbf{TL.2b}: $\forall \overline{t} \forall x y\ 
+    \alpha(\overline{t}, x) \And E(x, y) \Implies \sigma(\overline{t}, y)$
+    (``separators separate'')
+   \item \textbf{TL.3}: $\forall \overline{t} \forall \overline{u}
+     . E(\overline{t}, \overline{u}) \forall x \bigl(\alpha(\o{t}, x)
+     \Implies \alpha(\o{u}, x)\bigr) \And \bigl(\sigma(\o{t}, x) \Implies
+     \sigma(\o{u}, x)\bigr)$
+   \item \textbf{TL.4}: 
+     \vspace{-5mm}
+     \begin{align*}
+       \forall \overline{t} &\forall \o{u_1} . E(\o{t},
+       \o{u_1}) \forall \o{u_2} . E(\o{t}, \o{u_2}) \\
+       &{} \forall x \ \bigl(\gamma(\o{u_1}, x) \And \gamma(\o{u_2},
+       x)\bigr) \Iff \bigl( \sigma(\o{u_1}, x) \And \sigma(\o{u_2}, x) \bigr) \\
+     \end{align*}
+     \vspace{-10mm}
+   \item \textbf{TL.5}: For every connected component $A$ of the original
+     graph $G$, there is some $\overline{t}$ with $\sigma(t) = \nullset$
+     and $\alpha(t) = V(A)$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Torsos}
+  \begin{itemize}
+  \item Defined as a graph-valued function:
+    \begin{equation*}
+      \tau(\overline{t}) \define G[\beta(\overline{t})] \union
+      K[\sigma(\overline{t})] \union \Union_{\o{u} \in N_+(\o{t})} K[\sigma(\o{u})]
+    \end{equation*}
+  \item Since the nodes are exactly the bag, I won't define the node
+    relation again.
+  \item The torso's edge relation is clearly $\FO$-definable
+    \begin{align*}
+      \tau(\overline{t}, x, y) &\define \beta(\o{t}, x) \And \beta(\o{t},
+      y) \And {} \\
+      \Bigl[ E(x, y&) \Or \bigl( \sigma(\o{t}, x)
+      \And \sigma(\o{t}, y) \bigr) \Or \bigl( \exists \overline{u} . E(\overline{t}, \overline{u}) \And
+      \sigma(\o{u}, x) \And \sigma(\o{u}, y) \bigr) \Bigr]
+    \end{align*}
+  \item{} [Switch to other presentation]
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+\setbeamercovered{invisible}
+  \begin{columns}
+    \column{.5\textwidth}
+    \includegraphics[scale=0.5]{fig1.pdf}
+
+    Example graph.
+
+    \column{.5\textwidth}
+    \pause
+    \includegraphics[scale=0.6]{fig2.pdf}
+
+    Tree decomposition (bags).
+    \pause
+
+    But we'd rather work with separators.
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \begin{columns}
+    \column{.5\textwidth}
+    \includegraphics[scale=0.5]{fig1.pdf}
+    \column{.5\textwidth}
+    \includegraphics[scale=0.6]{fig3.pdf}
+
+    Separators (left) and Components (right).
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \begin{columns}
+    \column{.5\textwidth}
+    \includegraphics<1>[scale=0.5]{fig1b.pdf}
+    \includegraphics<2>[scale=0.5]{fig1c.pdf}
+    \includegraphics<3>[scale=0.5]{fig1d.pdf}
+    \includegraphics<4>[scale=0.5]{fig1e.pdf}
+    \column{.5\textwidth}
+    \includegraphics<1>[scale=0.6]{fig3b.pdf}
+    \includegraphics<2>[scale=0.6]{fig3c.pdf}
+    \includegraphics<3>[scale=0.6]{fig3d.pdf}
+    \includegraphics<4>[scale=0.6]{fig3e.pdf}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  % \frametitle{$\tau(\overline{t}) \define G[\beta(\overline{t})] \union
+  %     K[\sigma(\overline{t})] \union \Union_{\o{u} \in N_+(\o{t})}
+  %     K[\sigma(\o{u})]$}
+  \begin{equation*}
+    \tau(\overline{t}) \define G[\beta(\overline{t})] \union
+    K[\sigma(\overline{t})] \union \Union_{\o{u} \in N_+(\o{t})}
+    K[\sigma(\o{u})]
+    \end{equation*}
+
+  \begin{columns}
+    \column{.5\textwidth}
+    \includegraphics<1>[scale=0.5]{fig1b2.pdf}
+    \includegraphics<2>[scale=0.5]{fig1c2.pdf}
+    \includegraphics<3>[scale=0.5]{fig1d2.pdf}
+    \includegraphics<4>[scale=0.5]{fig1e2.pdf}
+    \column{.5\textwidth}
+    \includegraphics<1>[scale=0.6]{fig3b.pdf}
+    \includegraphics<2>[scale=0.6]{fig3c.pdf}
+    \includegraphics<3>[scale=0.6]{fig3d.pdf}
+    \includegraphics<4>[scale=0.6]{fig3e.pdf}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{So what are torsos?}
+  \begin{itemize}
+  \item We can categorize graphs by whether you can express them with a
+    particular set of torsos.
+  \item A treelike decomposition is \emph{over} a class of graphs
+    $\mathcal{A}$ if all its torsos are from $\mathcal{A}$.
+  \item We have some idea of what graphs of bounded treewidth are.
+    \begin{itemize}
+    \item I think Neil said it's the same as number of variables, which
+      mostly makes sense to me.
+    \end{itemize}
+  \item Graphs with treewidth $k$ are exactly the graphs that can be drawn
+    with $k+1$-vertex torsos (since the vertices of the torsos are exactly
+    the bags).
+    \begin{itemize}
+    \item Forests $\mathcal{T}_1 = \mathcal{T}(\mathcal{G}_2)$
+    \end{itemize}
+  \item Definability of torsos related to definability of graph.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Let's talk about definable decompositions again}
+  \vspace{-5mm}
+  \begin{equation*}
+    \Lambda = \bigl(\lambda_V(\overline{x}), \lambda_E(\overline{x},
+    \overline{y}), \lambda_\sigma(\overline{x}, y),
+    \lambda_\alpha(\overline{x}, y)\bigr)
+  \end{equation*}
+  \begin{itemize}
+  \item We don't require $\Lambda$ to define a treelike decomp.\ for every
+    graph $G$.  \pause
+  \item $\mathcal{T}_{\Lambda}$ is the class of all graphs $G$
+    s.t. $\Lambda[G]$ is a treelike decomposition.
+    \begin{itemize}
+    \item Seemed kind of backwards at first.
+    \item Pre-image of TL.1-TL.5 under $\Lambda$.
+    \item The goal of a decomposition scheme is to map (``decompose'') a
+      bunch of graphs onto treelike decompositions.
+      \pause
+    \item Note $\mathcal{T}_{\Lambda}$ is FO[IFP]-definable.
+    \end{itemize}
+    \pause
+  \item $\mathcal{T}_{\Lambda}[\mathcal{A}]$ -- class of graphs where
+    $\Lambda$ is a treelike decomp.\ over $\mathcal{A}$ (torsos).
+    \begin{itemize}
+    \item Typically (always?) $\mathcal{A}$ will be FO[IFP]-definable.
+    \item In addition to TL.1-TL.5, restrictions on torso (bag, separator,
+      children's separators).
+      \pause
+    \item $\mathcal{T}_{\Lambda}[\mathcal{A}]$ is also FO[IFP]-definable!
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Lemma 5.4.3 -- Definability Lifting Lemma}
+  \begin{itemize}
+  \item If $\Lambda$ and $\mathcal{A}$ are IFP-definable, then so is
+    $\mathcal{T}_{\Lambda}[\mathcal{A}]$
+    \begin{itemize}
+    \item Recall $\mathcal{T}_{\Lambda}[\mathcal{A}]$ -- class of graphs where
+    $\Lambda$ is treelike decomp.\ over $\mathcal{A}$.
+    \end{itemize}
+  \item Given a TL decomp.\ we can calculate its torsos, and check each of
+    them for membership in $\mathcal{A}$.
+  \item FO[IFP]-definable sets are closed under pre-image of
+    FO[IFP]-definable functions. (``syntactic interpretation lemma'').
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Lemma 5.4.5 -- Union Lemma for Definable Decompositions}
+  
+  For $\mathcal{A}$ IFP-definable and $\mathcal{B}$, $\mathcal{C}$ admitting
+  IFP-definable treelike decompositions over $\mathcal{A}$, we have that
+  $\mathcal{B} \Union \mathcal{C}$ admits an IFP-definable treelike
+  decomposition over $\mathcal{A}$.
+
+  \begin{itemize}
+  \item Assume wlog both decompositions have the same dimension.
+  \item There are schemes $\Lambda^B$ and $\Lambda^C$ s.t. $\mathcal{B}
+    \subseteq \mathcal{T}_{\Lambda^B}(\mathcal{A})$ and $\mathcal{C}
+    \subseteq \mathcal{T}_{\Lambda^C}(\mathcal{A})$
+  \item There is an IFP formula $\phi_B$ defining the class
+    $\mathcal{T}_{\Lambda^B}(\mathcal{A})$.
+  \item Our decomposition basically uses $\Lambda^B$ if it works, otherwise
+    uses $\Lambda^C$
+    \begin{equation*}
+      \lambda_\sigma(\o{x}, y) \define \bigl(\phi_B \And
+      \lambda_\sigma^B(\o{x}, y)\bigr) \Or \bigl( \Not \phi_B \And
+      \lambda_\sigma^C(\o{x}, y)\bigr)
+    \end{equation*}
+  \end{itemize}
+
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Treelike decomposition examples}
+  \begin{columns}
+    \column{0.3\textwidth}
+    \includegraphics[scale=0.4]{fig6.pdf}
+    \column{0.7\textwidth}
+    \includegraphics<1>[scale=0.6]{fig6b.pdf}
+    \includegraphics<2>[scale=0.6]{fig6c.pdf}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \setbeamercovered{invisible}
+  \frametitle{\emph{Normal} Treelike Decompositions}
+  \vspace{-8mm}
+  \begin{columns}
+    \column{0.3\textwidth}
+    \includegraphics[scale=0.4]{fig6.pdf}
+    \column{0.7\textwidth}
+    \includegraphics[scale=0.6]{fig6c2.pdf}
+  \end{columns}  
+  \vspace{-10mm}
+    \only<2> {
+      \begin{itemize}
+      \item (Green) Every source has $\sigma = \nullset$ and $\alpha = $ the
+        vertex set of some connected component of $G$.
+      \item Note (TL.2) required every connected component to own some such
+        node.
+        \end{itemize}
+    }
+    \only<3> {
+    (Red) No nodes with $\gamma = \nullset$.
+    }
+    \only<4> {
+    Note FO[IFP]-definable.
+    }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Normal Treelike Decompositions}
+  \begin{itemize}
+  \item (Lemma 4.3.5): We can turn any TL decomp.\ normal by recursively
+    pruning out ``bad'' nodes.
+  \item After this process, all of the remaining nodes ``look exactly the
+    same as they used to''.
+    \begin{itemize}
+    \item Given two treelike decompositions $\Delta, \Delta'$ of the same
+      graph and nodes $\overline{t} \in \Delta$, $\overline{t'} \in
+      \Delta'$, we write $\overline{t} \triplesmile \overline{t'}$ if they
+      have the same bag and component and cone and design and torso.
+    \item Nodes are ``$\Delta, \Delta'$-indistinguishable'' or
+      ``indistinguishable'' or ``equivalent''.
+    \item Note $\overline{t} \triplesmile \overline{t'} \Implies
+      \overline{t} \doublesmile \o{t'}$ but not vice versa.
+    \end{itemize}
+  \item (Lemma 5.2.3): Normalization process is FO[IFP]-definable.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{\emph{Strict} Treelike Decompositions}
+  \vspace{-5mm}
+  \begin{columns}
+    \column{0.3\textwidth}
+    \includegraphics[scale=0.4]{fig6.pdf}
+    \column{0.7\textwidth}
+    \includegraphics<1>[scale=0.6]{fig6c.pdf}
+    \includegraphics<2>[scale=0.6]{fig6c3.pdf}
+  \end{columns}  
+  \vspace{-10mm}
+  \begin{itemize}
+  \item Every arrow gets rid of something or moves something from $\alpha$
+    to $\sigma$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Strict Treelike Decompositions}
+  \begin{itemize}
+  \item Lemma 4.3.6: We can turn a decomp.\ $\Delta$ into a strict decomp.\
+    $\Delta'$ s.t.:
+    \begin{itemize}
+    \item $V(\Delta') \subseteq V(\Delta)$ 
+    \item $\o{t} \unlhd^{\Delta'} \o{u} \Iff \o{t} \unlhd^{\Delta} \o{u}$
+    \item $\forall \o{t} \in V(\Delta')\ \ \o{t} \triplesmile^{\Delta', \Delta} \o{t}$
+    \end{itemize}
+  \item Lemma 5.2.3: Strictifying process is FO[IFP]-definable.
+  \item Lemma 4.3.7: We can make a graph strict-and-normal in FO[IFP],
+    because normalizing process from Lemma 4.3.5 preserves strictness.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{\emph{Tight} Decompositions}
+  \begin{itemize}
+  \item A decomposition is \emph{tight} if, for all $\overline{t}$,
+    \begin{itemize}
+    \item $\alpha(\overline{t})$ is connected
+    \item $\sigma(\o{t}) = N(\alpha(\o{t})) = \partial(\gamma(t))$
+    \end{itemize}
+  \item All the decompositions I've drawn were tight, even the stupid
+    ones.
+  \item ``Don't just put extra stuff in the separator''?
+  \item Maybe more relevant in graphs with multiple conn.\ comp.'s
+    \pause
+  \item Lemma 4.4.2: We can make a decomposition tight, but we don't 
+    have the close correspondence between nodes of prev. lemmas.
+    \begin{itemize}
+    \item Among other properties, torsos of the tight decomp.\ are
+      subgraphs of the torsos of the original decomp.
+    \end{itemize}
+    \pause
+  \item Lemma 4.4.3 describes a condition under which we can perform a
+    decomposition with the same torsos.
+    \begin{itemize}
+    \item ``\dots will not be needed until late in the second part of the book.
+      The reader may consider skipping the (unexpectedly difficult) proof
+      for now \dots''
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Tree Decompositions vs.\ Treelike Decompositions}
+  Tree Decompositions satisfy TL.1--TL.4.
+  \begin{itemize}
+  \item \textbf{(T.0)}: $E$ forms a directed tree.
+  \item \textbf{T.1}: For all $x$, the set $\{ \overline{t} \st
+    \beta(\overline{t}, x)\}$ forms a subtree under $E$.
+  \item \textbf{T.2}: For all $x$, $y$ with $E(x, y)$ (in original graph)
+    there exists $\overline{t}$ s.t. $\sigma(\overline{t}, x) \And
+    \sigma(\overline{t}, y)$.
+  \end{itemize}
+  \pause
+  If $G$ is connected, then any tree decomposition of it is also a treelike decomposition.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Things in Ch.\ 4 + Ch.\ 5 we haven't covered}
+  \begin{itemize}
+  \item Homomorphisms and bisimulation (p. 102)
+    \pause
+  \item We can normalize and use the lifting lemma on parametrized
+    decompositions (p. 113-117)
+    \pause
+  \item Transitivity Lemma (p. 117$+$): For classes $\mathcal{A}$,
+    $\mathcal{B}$, $\mathcal{C}$, if $\mathcal{C}$ is IFP-definable over
+    $\mathcal{B}$ and $\mathcal{B}$ is IFP-definable over $\mathcal{A}$
+    then $\mathcal{C}$ is IFP-definable over $\mathcal{A}$.
+    \begin{itemize}
+    \item Follows easily from ``Decomposition Lifting Lemma'' (p.118-128)
+      \begin{itemize}
+      \item Whose proof is ``long and tedious, but in its style typical for
+        many proofs of lifting or extension lemmas later in this book
+        (mainly in Part II)''  
+      \end{itemize}
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+% \begin{frame}
+% \frametitle{An attempt at tight tree decompositions}
+% \includegraphics[scale=0.4]{fig4.pdf}
+
+% An old tree decomposition.
+% \end{frame}
+
+% \begin{frame}
+% \frametitle{An attempt at tight tree decompositions}
+% \includegraphics[scale=0.4]{fig4b.pdf}
+
+% Tight tree decomposition.
+% \end{frame}
+
+
+
+% If we're moving the separator across the graph, we seem to have skipped a
+% few steps at the beginning and end.
+% \end{frame}
+
+% \begin{frame}
+%     \includegraphics[scale=0.30]{fig5.pdf}
+% \end{frame}
+
+
+
+\end{document}

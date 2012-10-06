@@ -1,0 +1,19 @@
+graph test12 {
+ nodesep=0.8
+ node [style="filled"]
+   { node [fillcolor = lightgrey];
+   1;
+   2;
+  }
+  { node [fillcolor = red];
+   3 [penwidth = 3.5];
+   4 [penwidth = 3.5]
+  }
+  { node [fillcolor = green];
+   5 [penwidth = 3.5]
+   6;
+  }
+
+ 1 -- 2 -- {3; 4} -- 5 -- 6;
+}
+

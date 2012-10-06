@@ -1,0 +1,51 @@
+graph test12d {
+ compound=true;
+ rankdir=LR;
+ subgraph cluster1 {
+  node [style="filled"]
+  a1 [label="1"]; a2 [label="2"]; a3 [label="3"];
+  a4 [label="4"]; a5 [label="5"]; a6 [label="6"];
+  
+  a3 [fillcolor = red, penwidth = 3];
+  a4 [fillcolor = red, penwidth = 3];
+
+  a1 -- a2 -- {a3; a4} -- a5 -- a6;
+ }
+ 
+ subgraph cluster2 {
+  node [style="filled"];
+  b1 [fillcolor = lightgrey];
+  b2 [fillcolor = red]
+  b3 [fillcolor = green]
+  b4 [fillcolor = green]
+  b5 [fillcolor = red]
+  b6 [fillcolor = lightgrey];
+
+  b1 [label="1"]; b2 [label="2"]; b3 [label="3"];
+  b4 [label="4"]; b5 [label="5"]; b6 [label="6"];
+    
+  b1 -- b2 -- {b3; b4} -- b5 -- b6;
+ }
+ 
+ subgraph cluster3 {
+  node [style="filled", fillcolor=green]
+  c1 [label="1"]; c2 [label="2"]; c3 [label="3"];
+  c4 [label="4"]; c5 [label="5"]; c6 [label="6"];
+
+  c1 [fillcolor = red];
+  c6 [fillcolor = red];
+  c2 [penwidth = 3];
+  c5 [penwidth = 3];
+  c1 -- c2 -- {c3; c4} -- c5 -- c6;
+ }
+ 
+ subgraph cluster4 {
+  node [style="filled", fillcolor=green]
+  d1 [label="1"]; d2 [label="2"]; d3 [label="3"];
+  d4 [label="4"]; d5 [label="5"]; d6 [label="6"];
+
+  d1 [penwidth = 3];
+  d6 [penwidth = 3];
+  d1 -- d2 -- {d3; d4} -- d5 -- d6;
+ }
+}

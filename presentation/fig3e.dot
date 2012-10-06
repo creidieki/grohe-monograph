@@ -1,0 +1,9 @@
+digraph test12c {
+ label="Sigma/Alpha"
+ node [style=filled,shape = "record"];
+ 12 -> 234 -> 345 -> 56;
+ 12 [label = "|123456"];
+ 234 [label = "2|3456"];
+ 345 [label = "34|56"];
+ 56 [penwidth=2.5,label = "5|6"]; 
+}

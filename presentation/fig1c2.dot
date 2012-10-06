@@ -1,0 +1,14 @@
+graph test12 {
+ nodesep=0.8
+ node [style="filled"]
+ 1;
+ 2 [fillcolor = red, penwidth = 3];
+ 3 [fillcolor = pink, penwidth = 3];
+ 4 [fillcolor = pink, penwidth = 3];
+ 1 -- 2;
+ 2 -- {3; 4} [penwidth = 4];
+ 3 -- 4 [constraint = false, style = dashed, penwidth = 4];
+ {3; 4} -- 5 -- 6;
+ label = "Original graph with torso drawn in bold.\n Separator in red; separators of children in pink.
+}
+
